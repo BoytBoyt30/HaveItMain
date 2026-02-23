@@ -4,7 +4,113 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HaveItMain.Views.DashboardView">
-    <TextBlock Text="DASHBOARD VIEW"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="0">
+        <Border Grid.Column="0" CornerRadius="11" BorderThickness="2" BorderBrush="#C8C8C8" Padding="15">
+            <Grid RowDefinitions="30,*" >
+                <Grid ColumnDefinitions="180, *, 100" Row="0">
+                    <Border Grid.Column="0">
+                        <TextBlock FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            Tasks To Do
+                        </TextBlock>
+                    </Border>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                               Margin="4"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                        <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                               Margin="4"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                        <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                               Margin="4"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+                <Border Grid.Row="1">
+                    <TextBlock Text="TASKS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    <!--
+                    
+                    <ContentControl
+                                Content="{Binding CurrentViewModel}"/>
+                    -->
+                </Border>
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1" RowDefinitions="*,*" RowSpacing="10">
+            <Border Grid.Column="0" Grid.Row="0" CornerRadius="11" BorderThickness="2" BorderBrush="#C8C8C8" Padding="15">
+                <Grid RowDefinitions="30,*" >
+                    <Grid ColumnDefinitions="180, *, 100" Row="0">
+                        <Border Grid.Column="0">
+                            <TextBlock FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                Calendar
+                            </TextBlock>
+                        </Border>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <Border Grid.Row="1">
+                        <TextBlock Text="CALENDAR"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </Border>   
+            <Border Grid.Column="0" Grid.Row="1" CornerRadius="11" BorderThickness="2" BorderBrush="#C8C8C8" Padding="15">
+                <Grid RowDefinitions="30,*" >
+                    <Grid ColumnDefinitions="180, *, 100" Row="0">
+                        <Border Grid.Column="0">
+                            <TextBlock FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                Timers
+                            </TextBlock>
+                        </Border>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <Border Grid.Row="1">
+                        <TextBlock Text="TIMERS"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </Border>   
+        </Grid>
+
+    </Grid>
 </UserControl>

@@ -18,10 +18,10 @@
                      <views:TimerView/>
                  </DataTemplate>
                  <DataTemplate DataType="vm:Settings">
-                     <views:StreakView/>
+                     <views:SettingsView/>
                  </DataTemplate>
                  <DataTemplate DataType="vm:Streak">
-                     <views:SettingsView/>
+                     <views:StreakView/>
                  </DataTemplate>
              </Application.DataTemplates>
              

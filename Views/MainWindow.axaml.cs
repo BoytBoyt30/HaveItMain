@@ -9,12 +9,20 @@ namespace HaveItMain.Views;
 
 public partial class MainWindow : Window
 {
+    
+    private bool _sidebarCollapsed = false;
+    
     public MainWindow()
     {
         InitializeComponent();
         DataContext = new MainWindowViewModel();
     }
-    
+
+    public void initialize_core_settings()
+    {
+        LEFTMENUBAR.IsVisible = true;
+    }
+
     private void Dashboard_Click(object? sender, RoutedEventArgs e)
     {
         // cast DataContext to your MainWindowViewModel
@@ -28,7 +36,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Timer(); 
+            vm.CurrentViewModel = new Timer();
         }
     }
 
@@ -62,5 +70,23 @@ public partial class MainWindow : Window
         {
             vm.CurrentViewModel = new Dashboard();
         }
+    }
+
+    private void LEFTMENUBAR_OnDoubleTapped(object? sender, TappedEventArgs e)
+    {
+        var sidebarColumn = Windowgrid.ColumnDefinitions[0];
+
+        if (_sidebarCollapsed)
+        {
+            LeftMenuContent.IsVisible = true;
+            sidebarColumn.Width = new GridLength(72); // expanded width
+        }
+        else
+        {
+            LeftMenuContent.IsVisible = false;
+            sidebarColumn.Width = new GridLength(10); // collapsed width
+        }
+
+        _sidebarCollapsed = !_sidebarCollapsed;
     }
 }

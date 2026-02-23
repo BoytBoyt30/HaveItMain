@@ -81,6 +81,6 @@
 /Users/franzylmacalua/RiderProjects/HaveItMain/bin/Release/net9.0/ReactiveUI.Fody.Helpers.dll
 /Users/franzylmacalua/RiderProjects/HaveItMain/bin/Release/net9.0/Splat.dll
 /Users/franzylmacalua/RiderProjects/HaveItMain/bin/Release/net9.0/System.Reactive.dll
+/Users/franzylmacalua/RiderProjects/HaveItMain/bin/Release/net9.0/Avalonia.ReactiveUI.dll
 /Users/franzylmacalua/RiderProjects/HaveItMain/obj/Release/net9.0/HaveItMain.csproj.Fody.CopyLocal.cache
 /Users/franzylmacalua/RiderProjects/HaveItMain/obj/Release/net9.0/HaveItMain.csproj.Fody.RuntimeCopyLocal.cache
-/Users/franzylmacalua/RiderProjects/HaveItMain/bin/Release/net9.0/Avalonia.ReactiveUI.dll
