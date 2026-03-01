@@ -31,7 +31,7 @@ public partial class AddTaskMessage : Window
                 case "Pending": NPending.IsChecked = true; break;
                 case "Urgent": UrgentZ.IsChecked = true; break;
             }
-        };
+        }; 
     }
     public async Task ShowDialogAsync(Window owner)
     {

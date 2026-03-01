@@ -22,7 +22,21 @@ public partial class MainWindow : Window
     {
         LEFTMENUBAR.IsVisible = true;
     }
-
+    
+    private void ComboBoxClick(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.ContextFlyout is MenuFlyout flyout)
+        {
+            flyout.ShowAt(btn);
+        }
+    }
+    
+    private void Demo_VideoClick(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var videoWindow = new Video();
+        videoWindow.Show(); // or ShowDialog(this) if modal
+    }
+    
     private void Dashboard_Click(object? sender, RoutedEventArgs e)
     {
         // cast DataContext to your MainWindowViewModel

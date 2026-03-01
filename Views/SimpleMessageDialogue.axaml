@@ -4,14 +4,18 @@
     xmlns:views="clr-namespace:HaveItMain.Views"
     x:Class="HaveItMain.Views.SimpleMessageDialog">
     <Border BorderBrush="{StaticResource BrushPrimary} " BorderThickness="2" CornerRadius="11">
-        <StackPanel Spacing="12" >
+        <Grid RowDefinitions="*,*" Margin="20">
             <TextBlock x:Name="MessageText"
+                       Grid.Row="0"
                        TextWrapping="Wrap"
-                       FontSize="18"
-                       HorizontalAlignment="Center"/>
-            <Button Content="Okay"
-                    HorizontalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="UltraBold"/>
+            <Button Grid.Row="1" Content="Okay"
+                    Classes="Primary"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
                     Click="Ok_Click"/>
-        </StackPanel>
+        </Grid>
     </Border>
 </views:BaseDialog>

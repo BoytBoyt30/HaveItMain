@@ -39,6 +39,41 @@ public partial class DashboardView : UserControl
         }
     }
 
+    private async void SetTaskTimer(object? sender, PointerPressedEventArgs e)
+    {
+        Console.WriteLine("Pressed");
+        if (sender is Button btn &&
+            btn.DataContext is TimerViewModel timer &&
+            DataContext is Dashboard vm)
+        {
+            var SenderTask = sender as TaskItemViewModel;
+            var window = (Window)this.VisualRoot;
+
+            var dialog = new AddTimerMessage { PrefillTask = SenderTask };
+            
+            var result = await dialog.ShowDialog<TimerViewModel?>(window);
+            
+            if (result != null)
+            {
+                (DataContext as Dashboard)?.AddTimer(result);
+            }
+        }
+    }
+    
+    private async void AddTimerMethod(object? sender, PointerPressedEventArgs e)
+    {
+        var window = (Window)this.VisualRoot;
+
+        var dialog = new AddTimerMessage();
+
+        var result = await dialog.ShowDialog<TimerViewModel?>(window);
+
+        if (result != null)
+        {
+            (DataContext as Dashboard)?.AddTimer(result);
+        }
+    }
+
     private void DeleteTask(object? sender, RoutedEventArgs e)
     {
         if (sender is Button btn &&
@@ -46,6 +81,17 @@ public partial class DashboardView : UserControl
             DataContext is Dashboard vm)
         {
             vm.RemoveTask(task);
+        }
+    }
+    
+    private void DeleteTimer(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn &&
+            btn.DataContext is TimerViewModel timer &&
+            DataContext is Dashboard vm)
+        {
+            timer.Stop();
+            vm.RemoveTimer(timer);
         }
     }
     
@@ -70,12 +116,16 @@ public partial class DashboardView : UserControl
 
         if (Dashboard_Enlarged)
         {
+            ExpandButton.IsVisible = false;
+            ShrinkButton.IsVisible = true;
             Grid.SetColumnSpan(TasksPanel, 2);
             Streak.IsVisible = false;
             Timers.IsVisible = false;
         }
         else
         {
+            ExpandButton.IsVisible = true;
+            ShrinkButton.IsVisible = false;
             Grid.SetColumnSpan(TasksPanel, 1);
             Streak.IsVisible = true;
             Timers.IsVisible = true;

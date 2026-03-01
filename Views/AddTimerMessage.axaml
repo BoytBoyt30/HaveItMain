@@ -1,0 +1,61 @@
+<Window     xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            x:Class="HaveItMain.Views.AddTimerMessage"
+            Width="380"
+            Height="400"
+            CanResize="False"
+            WindowStartupLocation="CenterOwner"
+            SystemDecorations="None"
+            Background="Transparent">
+
+    <Window.Styles>
+        <Style Selector="ToggleButton.Urgency:unchecked">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        </Style>
+        <Style Selector="ToggleButton.Urgency:checked /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+    </Window.Styles>
+    <Border BorderBrush="{StaticResource BrushPrimary} " BorderThickness="2" CornerRadius="11">
+        <Grid RowDefinitions="*,*" Margin="30">
+            <StackPanel Grid.Row="0" Orientation="Vertical" Spacing="12">
+                <TextBlock x:Name="MessageText"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           Text="New Timer"/>
+                <TextBlock> Timer Name </TextBlock>
+                <TextBox x:Name="TaskTitleBox" HorizontalAlignment="Stretch" Watermark="Task name"></TextBox>
+                <TextBlock> Duration </TextBlock>
+                <ComboBox SelectedIndex="3" HorizontalAlignment="Stretch">
+                    <ComboBoxItem Content="1 Minute"></ComboBoxItem>
+                    <ComboBoxItem Content="5 Minute"></ComboBoxItem>
+                    <ComboBoxItem Content="10 Minute"></ComboBoxItem>
+                    <ComboBoxItem Content="20 Minute"></ComboBoxItem>
+                    <ComboBoxItem Content="30 Minute"></ComboBoxItem>
+                    <ComboBoxItem Content="1 Hour"></ComboBoxItem>
+                    <ComboBoxItem Content="2 Hours"></ComboBoxItem>
+                    <ComboBoxItem Content="3 Hours"></ComboBoxItem>
+                    <ComboBoxItem Content="5 Hours"></ComboBoxItem>
+                    <ComboBoxItem Content="10 Hours"></ComboBoxItem>
+                    <ComboBoxItem Content="24 Hours"></ComboBoxItem>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <TextBlock> Notify </TextBlock>
+                    <CheckBox x:Name="IsNotify"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Spacing="20">
+                <Button Click="Add" Classes="Primary">
+                    Add
+                </Button>
+                <Button Click="Discard" Classes="Closing">
+                    Cancel
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -86,13 +86,22 @@
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button Classes="null_for_image" Click="Expand">
+                        <Button x:Name="ExpandButton" Classes="null_for_image" Click="Expand" IsVisible="True">
                             <Image Source="avares://HaveItMain/Assets/ENLARGE.png"
                                    Margin="4"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
+                        </Button> 
+                        <!-- REMEMBER TO CHANGE THE RESOURCE IF NAA NAY WIFI-->
+                        <Button x:Name="ShrinkButton" Classes="null_for_image" Click="Expand" IsVisible="False">
+                            <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
                         </Button>
+                        
                     </StackPanel>
                 </Grid>
                 <Border Grid.Row="1">
@@ -147,7 +156,8 @@
                                             <Button Classes="null_for_image">
                                                 <Image Source="avares://HaveItMain/Assets/tmenu.png"
                                                        Width="25"
-                                                       Height="25"/>
+                                                       Height="25"
+                                                       PointerPressed="SetTaskTimer"/>
                                             </Button>
 
                                             <CheckBox IsChecked="false"
@@ -220,7 +230,7 @@
                                        Stretch="Uniform"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       PointerPressed="InputElement_OnPointerPressed"/>
+                                       PointerPressed="AddTimerMethod"/>
                             </Button>
                             <Button Classes="null_for_image" Click="ComboBoxClick">
                                 <Button.ContextFlyout>
@@ -286,7 +296,8 @@
                                             <TextBlock Text="{Binding DisplayTime}" VerticalAlignment="Center"/>
                                             <Button
                                                 HorizontalAlignment="Right"
-                                                    Classes="null_for_image">
+                                                Classes="null_for_image"
+                                                Click="DeleteTimer">
                                                 <Image Source="avares://HaveItMain/Assets/Xbutton.png"
                                                        Width="19"
                                                        Height="19"/>

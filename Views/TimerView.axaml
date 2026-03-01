@@ -55,7 +55,7 @@
                                             <TextBlock Text="{Binding Duration}" VerticalAlignment="Center"/>
                                             <Button
                                                 HorizontalAlignment="Right"
-                                                    Classes="null_for_image">
+                                                Classes="null_for_image">
                                                 <Image Source="avares://HaveItMain/Assets/Xbutton.png"
                                                        Width="19"
                                                        Height="19"/>

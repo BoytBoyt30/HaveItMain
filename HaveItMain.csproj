@@ -10,6 +10,7 @@
     <ItemGroup>
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
+        <Folder Include="Video\" />
     </ItemGroup>
     
     <ItemGroup>
@@ -38,6 +39,10 @@
         <PackageReference Include="Svg.Controls.Avalonia" Version="11.3.9.2" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    
     <ItemGroup>
       <Compile Update="Views\Streak.axaml.cs">
         <DependentUpon>Streak.axaml</DependentUpon>

@@ -220,7 +220,17 @@
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="4" Padding="0,0, 0,0">
-                            <Button Classes="null_for_image">
+                            <Button Classes="null_for_image" Click="ComboBoxClick">
+                                <Button.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuItem Header="Account Settings"/>
+                                        <MenuItem Header="Log Out"/>
+                                        <MenuItem Header="Export"/>
+                                        <MenuItem Header="Import"/>
+                                        <MenuItem Header="Demo Video" Click="Demo_VideoClick"/>
+                                        <MenuItem Header="About"/>
+                                    </MenuFlyout>
+                                </Button.ContextFlyout>
                                 <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
                                        Width="35"
                                        Height="35"

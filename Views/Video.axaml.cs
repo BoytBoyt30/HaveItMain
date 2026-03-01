@@ -1,14 +1,13 @@
 using System;
 using System.IO;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
 namespace HaveItMain.Views;
 
-public partial class StreakView : UserControl
+public partial class Video : Window
 {
-    public StreakView()
+    
+    public Video()
     {
         InitializeComponent();
     }

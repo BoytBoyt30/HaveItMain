@@ -25,6 +25,7 @@ public class Dashboard : ViewModelBase, IHasTitle
     {
         LoadTasks();
 
+        /*
         var studyTimer = new TimerViewModel("Study Session", TimeSpan.FromMinutes(25));
         studyTimer.Start();
         Timers.Add(studyTimer);
@@ -36,6 +37,7 @@ public class Dashboard : ViewModelBase, IHasTitle
         var break2 = new TimerViewModel("Break", TimeSpan.FromMinutes(5));
         break2.Start();
         Timers.Add(break2);
+        */
     }
 
     public void AddTask(TaskItemViewModel task)
@@ -43,11 +45,23 @@ public class Dashboard : ViewModelBase, IHasTitle
         Tasks.Add(task);
         SaveTasks();
     }
+
+    public void AddTimer(TimerViewModel timer)
+    {
+        Timers.Add(timer);
+    }
+    
     public void RemoveTask(TaskItemViewModel task)
     {
         _lastDeletedIndex = Tasks.IndexOf(task);
         _lastDeletedTask = task;
         Tasks.Remove(task);
+        SaveTasks();
+    }
+
+    public void RemoveTimer(TimerViewModel timer)
+    {
+        Timers.Remove(timer);
         SaveTasks();
     }
     
