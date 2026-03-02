@@ -1,8 +1,0 @@
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.csproj.AssemblyReference.cache
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/Avalonia/Resources.Inputs.cache
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/Avalonia/resources
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.GeneratedMSBuildEditorConfig.editorconfig
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.AssemblyInfoInputs.cache
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.AssemblyInfo.cs
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.csproj.CoreCompileInputs.cache
-/Users/franzylmacalua/RiderProjects/HaveItMain/obj/Debug/net9.0/HaveItMain.sourcelink.json

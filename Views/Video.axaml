@@ -5,4 +5,13 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HaveItMain.Views.Video"
         Title="Video">
+        <StackPanel>
+                <Canvas Name="VideoCanvas" Width="800" Height="450" Background="{StaticResource BrushForeground}"></Canvas>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Name="PlayButton" Content="\u25B6 Play" Margin="5"></Button>
+                        <Button Name="PauseButton" Content="\u23F8 Pause" Margin="5"></Button>
+                        <Button Name="StopButton" Content="\u23F9 Stop" Margin="5"></Button>
+                        <Button Name="OpenButton" Content="\u1F4C2 Open" Margin="5"></Button>
+                </StackPanel>
+        </StackPanel>
 </Window>
