@@ -2,16 +2,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="1000" Height="620"
         x:Class="HaveItMain.Views.Video"
-        Title="Video">
-        <StackPanel>
-                <Canvas Name="VideoCanvas" Width="800" Height="450" Background="{StaticResource BrushForeground}"></Canvas>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Name="PlayButton" Content="\u25B6 Play" Margin="5"></Button>
-                        <Button Name="PauseButton" Content="\u23F8 Pause" Margin="5"></Button>
-                        <Button Name="StopButton" Content="\u23F9 Stop" Margin="5"></Button>
-                        <Button Name="OpenButton" Content="\u1F4C2 Open" Margin="5"></Button>
+        Title="Demo Video"
+        Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
+        Background="Black">
+        <Grid RowDefinitions="*,Auto">
+                <!--
+                <Canvas Name="VideoCanvas" Width="800" Height="450" Background="{StaticResource BrushForeground}"></Canvas> -->
+                <vlc:VideoView x:Name="VideoView"
+                               Grid.Row="0"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1">
+                        <Button Classes="null_for_image" Name="ReplayButton" Margin="5" ToolTip.Tip="Replay (R)" IsVisible="True">
+                                <Image Source="avares://HaveItMain/Assets/Replay.png"
+                                       Margin="5"
+                                       Width="30"
+                                       Height="30"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Classes="null_for_image" Name="PlayButton" Margin="5" ToolTip.Tip="Play (Space)" IsVisible="True">
+                                <Image Source="avares://HaveItMain/Assets/Play.png"
+                                       Margin="5"
+                                       Width="30"
+                                       Height="30"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Classes="null_for_image" Name="PauseButton" Margin="5" ToolTip.Tip="Pause (Space)" IsVisible="False">
+                                <Image Source="avares://HaveItMain/Assets/Pause.png"
+                                       Margin="5"
+                                       Width="30"
+                                       Height="30"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Classes="null_for_image" Name="StopButton" Margin="5" ToolTip.Tip="Stop (Esc)">
+                                <Image Source="avares://HaveItMain/Assets/Stop.png"
+                                       Margin="5"
+                                       Width="30"
+                                       Height="30"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="5" Margin="10,0,0,0">
+                                <TextBlock Text="Vol:" Foreground="White" VerticalAlignment="Center"/>
+                                <Slider Name="VolumeSlider" Width="150" Minimum="0" Background="Transparent" Foreground="{StaticResource BrushPrimary}" Maximum="100">
+                                </Slider>
+                        </StackPanel>
                 </StackPanel>
-        </StackPanel>
+        </Grid>
 </Window>

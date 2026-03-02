@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj": {}
+    "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj": {}
   },
   "projects": {
-    "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj": {
+    "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj",
+        "projectUniqueName": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj",
         "projectName": "HaveItMain",
-        "projectPath": "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj",
-        "packagesPath": "/Users/franzylmacalua/.nuget/packages/",
-        "outputPath": "/Users/franzylmacalua/RiderProjects/HaveItMain/obj/",
+        "projectPath": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj",
+        "packagesPath": "C:\\Users\\Natsuki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/franzylmacalua/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Natsuki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -98,9 +104,9 @@
               "target": "Package",
               "version": "[11.3.9.2, )"
             },
-            "VideoLAN.LibVLC.mac": {
+            "VideoLAN.LibVLC.Windows": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[3.0.23, )"
             }
           },
           "imports": [
@@ -116,8 +122,20 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[9.0.5, 9.0.5]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -125,12 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "osx-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

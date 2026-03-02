@@ -3,7 +3,9 @@ using System.IO;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using LibVLCSharp.Shared;
+using LibVLCSharp.Avalonia;
 
 namespace HaveItMain.Views;
 
@@ -11,15 +13,18 @@ public partial class Video : Window
 {
     private MediaPlayer mediaPlayer;
     private LibVLC libVLC;
-
-    private Button playButton;
-    private Button pauseButton;
-    private Button stopButton;
-    private Button openButton;
+    
+    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Test.mp4";
 
     public Video()
     {
         InitializeComponent();
+        this.Opened += OnOpened;
+        this.Closing += OnClosing; 
+    }
+    
+    private void OnOpened(object? sender, EventArgs e)
+    {
         Setup();
     }
 
@@ -31,61 +36,115 @@ public partial class Video : Window
     private void Setup()
     {
         Core.Initialize();
-        libVLC = new LibVLC();
-        mediaPlayer = new MediaPlayer(libVLC);
-        
-        playButton = this.FindControl<Button>("PlayButton");
-        pauseButton = this.FindControl<Button>("PauseButton");
-        stopButton = this.FindControl<Button>("StopButton");
-        openButton = this.FindControl<Button>("OpenButton");
-        
-        playButton.Click += (s, e) => mediaPlayer?.Play();
-        pauseButton.Click += (s, e) => mediaPlayer?.Pause();
-        stopButton.Click += (s, e) => mediaPlayer?.Stop();
 
-        openButton.Click += async (s, e) => await OpenFileDialog();
-        var videoView = this.FindControl<Canvas>("VideoCanvas");
-        mediaPlayer.EndReached += (sender, args) =>
+        libVLC = new LibVLC("--avcodec-hw=none");
+        mediaPlayer = new MediaPlayer(libVLC);
+
+        var videoView = this.FindControl<VideoView>("VideoView");
+        var playButton = this.FindControl<Button>("PlayButton");
+        var pauseButton = this.FindControl<Button>("PauseButton");
+        var stopButton = this.FindControl<Button>("StopButton");
+        var replayButton = this.FindControl<Button>("ReplayButton");
+        var volumeSlider = this.FindControl<Slider>("VolumeSlider");
+
+        videoView.MediaPlayer = mediaPlayer;
+
+        // Preload media
+        if (File.Exists(videoPath))
         {
-            videoView.Background = Avalonia.Media.Brush.Parse("#FFFFFF");
+            var media = new Media(libVLC, videoPath, FromType.FromPath);
+            mediaPlayer.Media = media; // assign once
+        }
+        
+        // Volume slider
+        volumeSlider.Value = 100;
+        volumeSlider.PropertyChanged += (s, e) =>
+        {
+            if (e.Property == Slider.ValueProperty)
+                mediaPlayer.Volume = (int)volumeSlider.Value;
+        };
+
+        replayButton.Click += (s, e) =>
+        {
+            PlayVideo();                 // restart from beginning
+            playButton.IsVisible = false;
+            pauseButton.IsVisible = true;
+        };
+
+        playButton.Click += (s, e) =>
+        {
+            if (!mediaPlayer.IsPlaying)
+                mediaPlayer.Play();       // resume if paused
+            playButton.IsVisible = false;
+            pauseButton.IsVisible = true;
+        };
+
+        pauseButton.Click += (s, e) =>
+        {
+            if (mediaPlayer.IsPlaying)
+                mediaPlayer.Pause();
+            pauseButton.IsVisible = false;
+            playButton.IsVisible = true;
+        };
+
+        stopButton.Click += (s, e) =>
+        {
+            mediaPlayer.Stop();
+            pauseButton.IsVisible = false;
+            playButton.IsVisible = true;
+        };
+
+        // --- Auto-reset buttons when video ends ---
+        mediaPlayer.EndReached += (s, e) =>
+        {
+            mediaPlayer.Stop();
+            Dispatcher.UIThread.Post(() =>
+            {
+                pauseButton.IsVisible = false;
+                playButton.IsVisible = true;
+            });
         };
     }
 
-    private async Task<Task> OpenFileDialog()
-    {
-        var topLevel = TopLevel.GetTopLevel(this);
-        if (topLevel?.StorageProvider is { } storageProvider)
-        {
-            var files = await storageProvider.OpenFilePickerAsync(new Avalonia.Platform.Storage.FilePickerOpenOptions()
-            {
-                Title = "Open Video File",
-                AllowMultiple = false,
-                FileTypeFilter = new[]
-                {
-                    new Avalonia.Platform.Storage.FilePickerFileType("Video Files")
-                    {
-                        Patterns = new[] {"*.mp4", "*.avi"}
-                    }
-                }
-            });
+    private string? lastVideoPath;
 
-            if (files.Count > 0)
-            {
-                string filepath = files[0].Path.LocalPath;
-                PlayVideo(filepath);
-            }
+    private void PlayVideo()
+    {
+        if (!File.Exists(videoPath))
+        {
+            Console.WriteLine("Video file not found!");
+            return;
         }
-        return Task.CompletedTask;
-    }
 
-    private void PlayVideo(string filePath)
-    {
-        if (!string.IsNullOrEmpty(filePath))
-        {
+        if (mediaPlayer.IsPlaying)
             mediaPlayer.Stop();
-            var media = new Media(libVLC, new System.Uri(filePath));
-            mediaPlayer.Media = media;
-            mediaPlayer.Play();
-        }
+
+        // Dispose previous media to avoid crashes
+        mediaPlayer.Media?.Dispose();
+
+        var media = new Media(libVLC, videoPath, FromType.FromPath);
+        mediaPlayer.Play(media);
+    }
+    
+    private void OnClosing(object? sender, WindowClosingEventArgs e)
+    {
+    if (mediaPlayer != null)
+    {
+        // Stop playback
+        if (mediaPlayer.IsPlaying)
+            mediaPlayer.Stop();
+
+        // Detach from VideoView to avoid handle crash
+        var videoView = this.FindControl<VideoView>("VideoView");
+        if (videoView != null)
+            videoView.MediaPlayer = null;
+
+        // Dispose Media object
+        mediaPlayer.Media?.Dispose();
+
+        // Dispose MediaPlayer and LibVLC
+        mediaPlayer.Dispose();
+        libVLC.Dispose();
+    }
     }
 }

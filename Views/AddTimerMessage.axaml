@@ -6,7 +6,7 @@
             CanResize="False"
             WindowStartupLocation="CenterOwner"
             SystemDecorations="None"
-            Background="Transparent">
+            Background="{StaticResource BrushBackground}">
 
     <Window.Styles>
         <Style Selector="ToggleButton.Urgency:unchecked">

@@ -8,108 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Replay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Stop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/minimize.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Video.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Video.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Base.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Controls.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.DesignerSupport.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Desktop.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Dialogs.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Fonts.Inter.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.FreeDesktop.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Markup.Xaml.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Markup.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Metal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.MicroCom.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Native.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.OpenGL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.ReactiveUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Remote.Protocol.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Skia.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Svg.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Themes.Fluent.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Vulkan.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Win32.Automation.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.Win32.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.X11.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Avalonia.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/CommunityToolkit.Mvvm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/DynamicData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/ExCSS.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HarfBuzzSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/MicroCom.Runtime.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/ReactiveUI.Fody.Helpers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/ReactiveUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/ShimSkiaSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/SkiaSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Splat.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Svg.Controls.Avalonia.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Svg.Custom.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Svg.Model.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/System.Reactive.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/Tmds.DBus.Protocol.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-arm/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-arm/native/libSkiaSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-arm64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-arm64/native/libSkiaSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-loongarch64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-arm/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-arm64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-loongarch64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-riscv64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-x64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-musl-x64/native/libSkiaSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-riscv64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-x64/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-x64/native/libSkiaSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/linux-x86/native/libHarfBuzzSharp.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/osx/native/libAvaloniaNative.dylib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/osx/native/libHarfBuzzSharp.dylib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/osx/native/libSkiaSharp.dylib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-arm64/native/av_libglesv2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-arm64/native/libHarfBuzzSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-arm64/native/libSkiaSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x64/native/av_libglesv2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x64/native/libHarfBuzzSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x64/native/libSkiaSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x86/native/av_libglesv2.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x86/native/libHarfBuzzSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/runtimes/win-x86/native/libSkiaSharp.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Avalonia/references" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/HaveItMain.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/HaveItMain.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/Resources.Inputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/references" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.Fody.CopyLocal.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.Fody.RuntimeCopyLocal.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.Up2Date" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.sourcelink.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/apphost" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/ref/HaveItMain.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/refint/HaveItMain.dll" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
@@ -133,12 +49,12 @@
     &quot;assignee&quot;: &quot;FranzylNatsuki&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/FranzylNatsuki/HaveItMain&quot;,
-    &quot;accountId&quot;: &quot;7aea5ff1-0db7-42ab-851a-de27ba5074e2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/FranzylNatsuki/HaveItMain.git",
+    "accountId": "a46c0709-922c-468a-b7fe-1059fdd830a9"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ViewModels/AccountSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/Dashboard.cs" root0="FORCE_HIGHLIGHTING" />
@@ -256,6 +172,7 @@
       <workItem from="1772369130350" duration="1179000" />
       <workItem from="1772370364008" duration="3723000" />
       <workItem from="1772436956246" duration="4812000" />
+      <workItem from="1772458303189" duration="7125000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
