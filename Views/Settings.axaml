@@ -9,9 +9,6 @@
 
     <UserControl.Styles>
 
-        <!-- ══════════════════════════════════════════
-             TOGGLE BUTTON  (Enabled / Disabled)
-             ══════════════════════════════════════════ -->
         <Style Selector="ToggleButton.toggle-btn">
             <Setter Property="Width"           Value="100"/>
             <Setter Property="Height"          Value="35"/>
@@ -35,14 +32,12 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Panel HorizontalAlignment="Center"
                                VerticalAlignment="Center">
-                            <!-- "Enabled" label — shown when checked -->
                             <TextBlock x:Name="EnabledText"
                                        Text="Enabled"
                                        FontSize="20"
                                        HorizontalAlignment="Center"
                                        Foreground="#FCFCFC"
                                        IsVisible="False"/>
-                            <!-- "Disabled" label — shown when unchecked -->
                             <TextBlock x:Name="DisabledText"
                                        Text="Disabled"
                                        FontSize="20"
@@ -55,7 +50,6 @@
             </Setter>
         </Style>
 
-        <!-- Checked state → yellow background, show Enabled label -->
         <Style Selector="ToggleButton.toggle-btn:checked">
             <Setter Property="Background"  Value="#FFCC00"/>
             <Setter Property="BorderBrush" Value="#FFCC00"/>
@@ -67,9 +61,6 @@
             <Setter Property="IsVisible" Value="False"/>
         </Style>
 
-        <!-- ══════════════════════════════════════════
-             SMALL ACTION BUTTONS  (- / +)
-             ══════════════════════════════════════════ -->
         <Style Selector="Button.action-btn">
             <Setter Property="Width"       Value="46"/>
             <Setter Property="Height"      Value="34"/>
@@ -103,24 +94,16 @@
             </Setter>
         </Style>
 
-        <!-- ══════════════════════════════════════════
-             CUSTOM SLIDER  (#FFCC00 fill / #FCFCFC track)
-             Styles existing template parts — keeps input working
-             ══════════════════════════════════════════ -->
-
-        <!-- Overall slider sizing -->
         <Style Selector="Slider.yellow-slider">
             <Setter Property="Height" Value="35"/>
         </Style>
 
-        <!-- Thin #FFCC00 border around the entire track container -->
         <Style Selector="Slider.yellow-slider /template/ Border#SliderContainer">
             <Setter Property="BorderBrush"     Value="#FFCC00"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius"    Value="8"/>
         </Style>
 
-        <!-- Filled (decrease) side → #FFCC00 -->
         <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_DecreaseButton">
             <Setter Property="Background" Value="#FFCC00"/>
         </Style>
@@ -130,7 +113,6 @@
             <Setter Property="Height"       Value="8"/>
         </Style>
 
-        <!-- Unfilled (increase) side → #FCFCFC -->
         <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_IncreaseButton">
             <Setter Property="Background" Value="#FCFCFC"/>
         </Style>
@@ -140,7 +122,6 @@
             <Setter Property="Height"       Value="8"/>
         </Style>
 
-        <!-- Thumb → #FFCC00 circle -->
         <Style Selector="Slider.yellow-slider /template/ Thumb">
             <Setter Property="Width"      Value="18"/>
             <Setter Property="Height"     Value="18"/>
@@ -152,32 +133,24 @@
             <Setter Property="StrokeThickness" Value="1"/>
         </Style>
 
-        <!-- ══════════════════════════════════════════
-             ROW LABEL
-             ══════════════════════════════════════════ -->
-        <!-- Global text colour override -->
         <Style Selector="TextBlock">
             <Setter Property="Foreground" Value="#000000"/>
         </Style>
         <Style Selector="ComboBox">
             <Setter Property="Foreground" Value="#000000"/>
         </Style>
-        <!-- Dropdown popup background -->
         <Style Selector="ComboBox /template/ Border#Background">
             <Setter Property="Background" Value="#FFFFFF"/>
         </Style>
 
-        <!-- Each item in the dropdown -->
         <Style Selector="ComboBoxItem">
             <Setter Property="Background" Value="#FFFFFF"/>
         </Style>
 
-        <!-- Hovered item -->
         <Style Selector="ComboBoxItem:pointerover">
             <Setter Property="Background" Value="#FFF5CC"/>
         </Style>
 
-        <!-- Selected item -->
         <Style Selector="ComboBoxItem:selected">
             <Setter Property="Background" Value="#FFCC00"/>
         </Style>
@@ -190,18 +163,13 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground"        Value="#000000"/>
         </Style>
-        
 
     </UserControl.Styles>
 
-    <!-- ════════════════════════════════════════════════════════
-         PAGE ROOT
-         ════════════════════════════════════════════════════════ -->
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="8,4,16,24" Spacing="0" MaxWidth="700">
 
-            <!-- ── Row 1 · Adjust Text Size ── -->
             <Grid ColumnDefinitions="*, Auto"
                   Margin="0,8,0,8"
                   VerticalAlignment="Center">
@@ -213,7 +181,6 @@
                             Orientation="Horizontal"
                             Spacing="6"
                             VerticalAlignment="Center">
-                    <!-- Font size drop-down (8–30, default 26) -->
                     <ComboBox x:Name="FontSizeCombo"
                               Width="68"
                               SelectedIndex="18"
@@ -242,7 +209,6 @@
                         <ComboBoxItem Content="29"/>
                         <ComboBoxItem Content="30"/>
                     </ComboBox>
-                    <!-- Decrease / Increase buttons -->
                     <Button Content="-" Classes="action-btn"/>
                     <Button Content="+" Classes="action-btn"/>
                 </StackPanel>
@@ -250,7 +216,6 @@
 
             <Border Classes="row-divider"/>
 
-            <!-- ── Row 2 · Dark Mode ── -->
             <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
                 <TextBlock Grid.Column="0" Classes="setting-label" Text="Dark Mode"/>
                 <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
@@ -258,7 +223,6 @@
 
             <Border Classes="row-divider"/>
 
-            <!-- ── Row 3 · High Contrast Mode ── -->
             <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
                 <TextBlock Grid.Column="0" Classes="setting-label" Text="High Contrast Mode"/>
                 <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
@@ -266,7 +230,6 @@
 
             <Border Classes="row-divider"/>
 
-            <!-- ── Row 4 · Enable Tactile SFX ── -->
             <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
                 <TextBlock Grid.Column="0" Classes="setting-label" Text="Enable Tactile SFX"/>
                 <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
@@ -274,7 +237,6 @@
 
             <Border Classes="row-divider"/>
 
-            <!-- ── Row 5 · SFX Volume ── -->
             <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
                 <TextBlock Grid.Column="0" Classes="setting-label" Text="SFX Volume"/>
                 <Slider Grid.Column="1"
@@ -288,7 +250,6 @@
 
             <Border Classes="row-divider"/>
 
-            <!-- ── Row 6 · Enable Notification Ping ── -->
             <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
                 <TextBlock Grid.Column="0" Classes="setting-label" Text="Enable Notification Ping"/>
                 <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
