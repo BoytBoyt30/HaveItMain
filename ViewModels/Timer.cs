@@ -11,7 +11,7 @@ public class Timer : ViewModelBase, IHasTitle
 
     public Timer(ObservableCollection<TimerViewModel> sharedTimers)
     {
-        Timers = sharedTimers; // <-- this is what TimerView binds to
+        Timers = sharedTimers;
         
         foreach (var t in Timers)
             t.Start(); // starts ticking

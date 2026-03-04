@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:HaveItMain.ViewModels"
+        xmlns:converters="clr-namespace:HaveItMain.Converters"
+        x:Class="HaveItMain.Views.FocusMode"
+        x:DataType="viewModels:TimerViewModel"
+        Title="FocusMode">
+    
+    <Window.Resources>
+        <converters:ProgressToArcConverter x:Key="ProgressToArcConverter"/>
+    </Window.Resources>
+    <Grid Width="300" Height="300">
+        <!-- Animated progress arc -->
+        <Path Stroke="{StaticResource BrushPrimary}"
+              StrokeThickness="12"
+              StrokeLineCap="Round"
+              Data="{Binding Progress, Converter={StaticResource ProgressToArcConverter}, ConverterParameter=140}"/>
+    
+        <!-- Time text centered -->
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="{Binding DisplayTime}" 
+                       FontWeight="Bold"
+                       FontSize="96"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Title}"
+                       FontWeight="Bold"
+                       FontSize="48"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -177,4 +177,25 @@ public partial class DashboardView : UserControl
             flyout.ShowAt(btn);
         }
     }
+    
+    private void FocusModeEnable(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.DataContext is TimerViewModel timer)
+        {
+            var parentWindow = btn.GetVisualRoot() as Window;
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
+            var focus = new FocusMode(timer);
+            
+            focus.Closed += (_, _) =>
+            {
+                if (parentWindow != null)
+                    parentWindow.WindowState = WindowState.Normal;
+            };
+
+            focus.Show();
+        }
+    }
 }

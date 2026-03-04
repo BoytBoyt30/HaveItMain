@@ -60,7 +60,7 @@
                 <Grid ColumnDefinitions="180, *, 100" Row="0">
                     <Border Grid.Column="0">
                         <TextBlock FontWeight="UltraBold" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            Tasks To Do
+                            Tasks
                         </TextBlock>
                     </Border>
                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -290,7 +290,7 @@
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
                                                     Spacing="20">
-                                            <Button Classes="Primary">
+                                            <Button Classes="Primary" Click="FocusModeEnable">
                                                 Focus
                                             </Button>
                                             <TextBlock Text="{Binding DisplayTime}" VerticalAlignment="Center"/>

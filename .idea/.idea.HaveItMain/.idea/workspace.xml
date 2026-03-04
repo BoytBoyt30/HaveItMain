@@ -8,29 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PauseBlack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PlayBlack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Converters/ProgressToArcConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/FocusMode.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/FocusMode.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/TimerView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/TimerView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings.axaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/TimerView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/TimerView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +71,8 @@
     <setting file="file://$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/DashboardView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/DashboardView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/FocusMode.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/FocusMode.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Landing.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Landing.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Settings.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -180,7 +174,11 @@
       <workItem from="1772505184147" duration="564000" />
       <workItem from="1772505788159" duration="3823000" />
       <workItem from="1772534444735" duration="5762000" />
-      <workItem from="1772544136089" duration="4841000" />
+      <workItem from="1772544136089" duration="5094000" />
+      <workItem from="1772549942032" duration="1020000" />
+      <workItem from="1772550978029" duration="185000" />
+      <workItem from="1772583475085" duration="6059000" />
+      <workItem from="1772589940531" duration="1200000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -294,7 +292,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772466266486</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="TIMER OFFICIALLY DONE (REMEMBER TO CHANGE WINDOWS NOTIFICATION BACKEND)">
+      <option name="closed" value="true" />
+      <created>1772549045543</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1772549045543</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ss">
+      <option name="closed" value="true" />
+      <created>1772549131706</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1772549131706</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +343,9 @@
     <MESSAGE value="latest" />
     <MESSAGE value="Windows Video Player Works" />
     <MESSAGE value="no more storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="no more storage" />
+    <MESSAGE value="TIMER OFFICIALLY DONE (REMEMBER TO CHANGE WINDOWS NOTIFICATION BACKEND)" />
+    <MESSAGE value="ss" />
+    <option name="LAST_COMMIT_MESSAGE" value="ss" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

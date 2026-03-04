@@ -1,25 +1,23 @@
-// TimerView.xaml.cs
-
 using System.Linq;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.VisualTree;
+using Avalonia.Markup.Xaml;
 using HaveItMain.ViewModels;
 
 namespace HaveItMain.Views;
 
-public partial class TimerView : UserControl
+public partial class FocusMode : Window
 {
-    public TimerView()
+    private TimerViewModel Timer => (TimerViewModel)DataContext!;
+    
+    public FocusMode(TimerViewModel timer)
     {
         InitializeComponent();
+        DataContext = timer; // bind to the single TimerViewModel
     }
-
-    public void SetViewModel(Timer viewModel)
-    {
-        DataContext = viewModel;
-    }
-
+    
+    
     private void DeleteTimer(object? sender, RoutedEventArgs e)
     {
         if (sender is Button btn &&
@@ -67,27 +65,6 @@ public partial class TimerView : UserControl
             // Resume the timer
             if (playButton.DataContext is TimerViewModel timer)
                 timer.Resume();
-        }
-    }
-
-    private void FocusModeEnable(object? sender, RoutedEventArgs e)
-    {
-        if (sender is Button btn && btn.DataContext is TimerViewModel timer)
-        {
-            var parentWindow = btn.GetVisualRoot() as Window;
-            if (parentWindow != null)
-            {
-                parentWindow.WindowState = WindowState.Minimized;
-            }
-            var focus = new FocusMode(timer);
-            
-            focus.Closed += (_, _) =>
-            {
-                if (parentWindow != null)
-                    parentWindow.WindowState = WindowState.Normal;
-            };
-
-            focus.Show();
         }
     }
 }

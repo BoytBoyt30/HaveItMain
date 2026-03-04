@@ -6,19 +6,16 @@
              d:DesignWidth="1000"
              d:DesignHeight="600"
              x:Class="HaveItMain.Views.AccountSettingsView">
-
     <UserControl.Styles>
-
         <Style Selector="TextBlock">
-            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
         </Style>
         <Style Selector="ComboBox">
-            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
         </Style>
         <Style Selector="ComboBoxItem">
-            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
         </Style>
-
         <Style Selector="RadioButton.sidebar-tab">
             <Setter Property="HorizontalAlignment"        Value="Stretch"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -47,35 +44,29 @@
             <Setter Property="BorderBrush"   Value="#DDDDDD"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
-
         <Style Selector="RadioButton.sidebar-tab:checked">
             <Setter Property="Background"  Value="#F2F2F2"/>
             <Setter Property="BorderBrush" Value="#BBBBBB"/>
             <Setter Property="FontWeight"  Value="SemiBold"/>
         </Style>
-
         <Style Selector="RadioButton.sidebar-tab:pointerover /template/ Border#Root">
             <Setter Property="Background" Value="#F8F8F8"/>
         </Style>
-
         <Style Selector="CheckBox.yellow-check:checked /template/ Border#NormalRectangle">
             <Setter Property="Background"  Value="#FFCC00"/>
             <Setter Property="BorderBrush" Value="#FFCC00"/>
         </Style>
-
         <Style Selector="TextBlock.field-label">
             <Setter Property="FontSize"   Value="12"/>
             <Setter Property="Foreground" Value="#555555"/>
             <Setter Property="Margin"     Value="0,0,0,4"/>
         </Style>
-
         <Style Selector="Border.data-box">
             <Setter Property="Background"      Value="#F0F0F0"/>
             <Setter Property="CornerRadius"    Value="6"/>
             <Setter Property="Padding"         Value="10,7"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
-
         <Style Selector="Button.btn-save">
             <Setter Property="Background"  Value="#FFCC00"/>
             <Setter Property="Foreground"  Value="White"/>
@@ -84,7 +75,6 @@
             <Setter Property="FontWeight"  Value="SemiBold"/>
             <Setter Property="Cursor"      Value="Hand"/>
         </Style>
-
         <Style Selector="Button.btn-cancel">
             <Setter Property="Background"       Value="Transparent"/>
             <Setter Property="BorderBrush"      Value="#CCCCCC"/>
@@ -93,7 +83,6 @@
             <Setter Property="Padding"          Value="20,8"/>
             <Setter Property="Cursor"           Value="Hand"/>
         </Style>
-
         <Style Selector="Button.btn-export">
             <Setter Property="Background"  Value="#FFCC00"/>
             <Setter Property="Foreground"  Value="White"/>
@@ -101,7 +90,6 @@
             <Setter Property="Padding"     Value="22,6"/>
             <Setter Property="Cursor"      Value="Hand"/>
         </Style>
-
         <Style Selector="Button.btn-delete">
             <Setter Property="Background"  Value="#E03333"/>
             <Setter Property="Foreground"  Value="White"/>
@@ -109,29 +97,24 @@
             <Setter Property="Padding"     Value="22,6"/>
             <Setter Property="Cursor"      Value="Hand"/>
         </Style>
-
         <Style Selector="TextBlock.section-header">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize"   Value="14"/>
             <Setter Property="Margin"     Value="0,6,0,6"/>
         </Style>
-
         <Style Selector="TextBlock.faq-q">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize"   Value="13"/>
             <Setter Property="Margin"     Value="0,10,0,2"/>
         </Style>
-
         <Style Selector="TextBlock.faq-a">
             <Setter Property="FontSize"      Value="13"/>
             <Setter Property="TextWrapping"  Value="Wrap"/>
             <Setter Property="Foreground"    Value="#333333"/>
         </Style>
-
     </UserControl.Styles>
 
-    <Grid ColumnDefinitions="170, *">
-
+    <Grid ColumnDefinitions="250, *">
         <Border Grid.Column="0"
                 Background="White"
                 CornerRadius="8"
@@ -165,14 +148,11 @@
         </Border>
 
         <Panel Grid.Column="1">
-
             <ScrollViewer IsVisible="{Binding #TabAccountSettings.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
-
                     <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,0,0,18">
-
                         <Border Width="80" Height="80"
                                 CornerRadius="8"
                                 Background="#D0D0D0"
@@ -194,7 +174,7 @@
                                 <TextBlock Text="0 Days Streak"
                                            FontSize="13" Foreground="#666666"/>
                                 
-                                <Image Source="avares://HaveItMain/Assets/streak-icon.png"
+                                <Image Source="avares://HaveItMain/Assets/smenu.png"
                                        Width="16" Height="16"
                                        VerticalAlignment="Center"/>
                             </StackPanel>
@@ -211,7 +191,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -223,7 +203,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -235,7 +215,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -247,7 +227,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -259,7 +239,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -275,7 +255,7 @@
                                     <TextBlock Text="[data]" Foreground="#888888"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -287,7 +267,7 @@
                                     <TextBlock Text="•••••••••" Foreground="#555555"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -299,7 +279,7 @@
                                     <TextBlock Text="•••••••••" Foreground="#555555"/>
                                 </Border>
                                 <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"/>
@@ -467,7 +447,6 @@
 
                 </StackPanel>
             </ScrollViewer>
-
         </Panel>
     </Grid>
 </UserControl>

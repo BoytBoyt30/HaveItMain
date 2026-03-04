@@ -30,6 +30,9 @@
                  <Color x:Key="Complement"> #00B2FF </Color>
                  <Color x:Key="ColorBackground">#FFFFFFFF</Color>
                  <Color x:Key="ColorForeground">#FF000000</Color>
+                 <x:Double x:Key="FontSizeLarge">45</x:Double>
+                 <x:Double x:Key="FontSizeNormal">20</x:Double>
+                 <FontFamily x:Key="NunitoFont">avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito</FontFamily>
 
                  <!-- Brushes (what UI actually uses) -->
                  <SolidColorBrush x:Key="BrushPrimary" Color="{StaticResource ColorPrimary}"/>
@@ -55,45 +58,51 @@
     <Application.Styles>
         <FluentTheme />
         <Style Selector="MenuFlyoutPresenter">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         </Style>
         <Style Selector="Button">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="ToggleButton">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
         </Style>
         <Style Selector="Button.Universal_Button">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="Button.Primary">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FFAA00"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
-        <Style Selector="ToggleButton.Primary">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+        <Style Selector="ToggleButton.Primary:unchecked">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="#FFAA00"></Setter>
+            <Setter Property="BorderBrush" Value="{StaticResource BrushPrimary}"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource BrushPrimary}"></Setter>
+            <Setter Property="Background" Value="{StaticResource BrushBackground}"></Setter>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
+        </Style>
+        <Style Selector="ToggleButton.Primary:checked">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource BrushBackground}"></Setter>
+            <Setter Property="Background" Value="{StaticResource BrushPrimary}"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="Button.Closing">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="BorderBrush" Value="Black"></Setter>
@@ -101,7 +110,7 @@
             <Setter Property="Background" Value="White"></Setter>
         </Style>
         <Style Selector="ToggleButton.Closing">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="BorderBrush" Value="Black"></Setter>
@@ -109,36 +118,36 @@
             <Setter Property="Background" Value="White"></Setter>
         </Style>
         <Style Selector="TextBlock">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         </Style>
         
         <Style Selector="TextBlock.Headers">
-            <Setter Property="FontSize" Value="45"></Setter>
+            <Setter Property="FontSize" Value="{DynamicResource  FontSizeLarge}"></Setter>
             <Setter Property="FontWeight" Value="ExtraBold"/>
         </Style>
 
         <!-- Button -->
         <Style Selector="Button">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
             <Setter Property="CornerRadius" Value="8"></Setter>
         </Style>
 
         <!-- TextBox -->
         <Style Selector="TextBox">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{DynamicResource  FontSizeNormal}"/>
         </Style>
 
         <!-- ComboBox -->
         <Style Selector="ComboBox">
-            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         </Style>
                     <Style Selector="Button.null_for_image">
                 <Setter Property="Padding" Value="0"/>
@@ -184,8 +193,7 @@
             <Setter Property="Background" Value="#E0E0E0"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
-
-        <!-- Press -->
+        
         <Style Selector="Button.round-button:pressed">
             <Setter Property="RenderTransform">
                 <Setter.Value>
