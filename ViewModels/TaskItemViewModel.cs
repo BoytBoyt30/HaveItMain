@@ -9,6 +9,10 @@ public class TaskItemViewModel : ViewModelBase
     private DateTime _date;
     private string _urgency;
     private bool _isFinished;
+    
+    public bool IsUrgent => Urgency == "Urgent";
+    public bool IsPending => Urgency == "Pending";
+    public bool IsNotUrgent => Urgency == "Not Urgent";
 
     public string Title
     {
@@ -25,7 +29,13 @@ public class TaskItemViewModel : ViewModelBase
     public string Urgency
     {
         get => _urgency;
-        set => this.RaiseAndSetIfChanged(ref _urgency, value);
+        set 
+        {
+            this.RaiseAndSetIfChanged(ref _urgency, value);
+            this.RaisePropertyChanged(nameof(IsUrgent));
+            this.RaisePropertyChanged(nameof(IsPending));
+            this.RaisePropertyChanged(nameof(IsNotUrgent));
+        }
     }
 
     public DateTime date_created { get; }  // keep read-only

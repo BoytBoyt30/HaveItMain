@@ -153,6 +153,7 @@
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
                     <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,0,0,18">
+                        <!--
                         <Border Width="80" Height="80"
                                 CornerRadius="8"
                                 Background="#D0D0D0"
@@ -163,8 +164,7 @@
                             <TextBlock Text="+" FontSize="28" Foreground="#888"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                        </Border>
-
+                        </Border> -->
                         <StackPanel VerticalAlignment="Center" Spacing="3">
                             <TextBlock Text="Welcome [Insert String]!"
                                        FontSize="22" FontWeight="Bold"/>

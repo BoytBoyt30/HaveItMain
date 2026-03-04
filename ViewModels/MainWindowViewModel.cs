@@ -6,6 +6,7 @@ namespace HaveItMain.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        
         private ViewModelBase _currentViewModel;
         public Dashboard Dashboard { get; } = new Dashboard();
         public ViewModelBase CurrentViewModel

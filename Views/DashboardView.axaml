@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:HaveItMain.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HaveItMain.Views.DashboardView"
+             xmlns:conv="clr-namespace:HaveItMain.Converters"
              x:DataType="vm:Dashboard">
     <UserControl.Styles>
         <Style Selector="ListBox">
@@ -93,7 +94,7 @@
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button> 
-                        <!-- REMEMBER TO CHANGE THE RESOURCE IF NAA NAY WIFI-->
+                        <!-- REMEMBER TO CHANGE THE RESOURCE IF NAA NAY WI-FI-->
                         <Button x:Name="ShrinkButton" Classes="null_for_image" Click="Expand" IsVisible="False">
                             <Image Source="avares://HaveItMain/Assets/minimize.png"
                                    Margin="4"
@@ -104,14 +105,15 @@
                         
                     </StackPanel>
                 </Grid>
-                <Border Grid.Row="1">
+                <Grid Grid.Row="1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTasks}" Text="No Tasks Created. Add a Task using the + Button."/>
                     <ListBox Margin="0,10,0,10"
                              Padding="10"
                              x:Name="TASKLISTCONTAINER"
-                             IsVisible="True"
+                             IsVisible="{Binding !HasNoTasks}"
                              ItemsSource="{Binding Tasks}"
                              Background="Transparent"
-                             >
+                    >
                         
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -127,7 +129,6 @@
                                     CornerRadius="8" 
                                     Padding="10" 
                                     Background="{StaticResource BrushBackground}">
-                                    
                                     <Border.Effect>
                                         <DropShadowEffect Color="Black"
                                                           BlurRadius="4"
@@ -135,15 +136,44 @@
                                                           OffsetY="3"
                                                           Opacity="0.25"/>
                                     </Border.Effect>
-
                                     <Grid ColumnDefinitions="*,*">
                                         <StackPanel Grid.Column="0" Orientation="Vertical">
                                             <TextBlock Text="{Binding Title}"
+                                                       FontWeight="UltraBold"
                                                        TextWrapping="Wrap"
                                                        TextTrimming="CharacterEllipsis"/>
                                             <TextBlock Text="{Binding Date, StringFormat='{}{0:MMM dd, yyyy}'}"/>
                                             <TextBlock Text="{Binding Date, StringFormat='{}{0:hh:mm tt}'}"/>
-                                            <TextBlock Text="{Binding Urgency}"/>
+                                            <Panel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,0,0">
+                                                <Border Background="#FF9A98" 
+                                                        CornerRadius="4" 
+                                                        Padding="8,4" 
+                                                        IsVisible="{Binding IsUrgent}"
+                                                        HorizontalAlignment="Left">
+                                                    <TextBlock Text="Urgent" 
+                                                               Foreground="#B50000" 
+                                                               FontWeight="Bold"/>
+                                                </Border>
+                                                <Border Background="#FFED75" 
+                                                        CornerRadius="4" 
+                                                        Padding="8,4" 
+                                                        IsVisible="{Binding IsPending}"
+                                                        HorizontalAlignment="Left">
+                                                    <TextBlock Text="Pending" 
+                                                               Foreground="#A3A043" 
+                                                               FontWeight="Bold"/>
+                                                </Border>
+                                                <Border Background="#A1FFAF" 
+                                                        CornerRadius="4" 
+                                                        Padding="8,4" 
+                                                        IsVisible="{Binding IsNotUrgent}"
+                                                        HorizontalAlignment="Left">
+                                                    <TextBlock Text="Not Urgent" 
+                                                               Foreground="#008A15" 
+                                                               FontWeight="Bold"/>
+                                                </Border>
+    
+                                            </Panel>
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="1"
@@ -153,11 +183,10 @@
                                                     VerticalAlignment="Center"
                                                     Spacing="20">
 
-                                            <Button Classes="null_for_image">
+                                            <Button Classes="null_for_image" Click="SetTaskTimerClick">
                                                 <Image Source="avares://HaveItMain/Assets/tmenu.png"
                                                        Width="25"
-                                                       Height="25"
-                                                       PointerPressed="SetTaskTimer"/>
+                                                       Height="25"/>
                                             </Button>
 
                                             <CheckBox IsChecked="false"
@@ -178,7 +207,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <!-- THIS SHOULD CONTAIN A SCROLLVIEW WHICH CAN CONTAIN TASK ITEMS. Basically it is empty but when you add, you add a UI element in the form of a stack-->
-                </Border>
+                </Grid>
             </Grid> <!-- TASKS-->
         </Border> <!--Griddy -->
         <Grid Grid.Column="1" RowDefinitions="*,*" RowSpacing="10">
@@ -232,6 +261,7 @@
                                        VerticalAlignment="Center"
                                        PointerPressed="AddTimerMethod"/>
                             </Button>
+                            <!--
                             <Button Classes="null_for_image" Click="ComboBoxClick">
                                 <Button.ContextFlyout>
                                     <MenuFlyout>
@@ -246,13 +276,15 @@
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
                             </Button>
+                                               -->
                         </StackPanel>
                     </Grid>
-                    <Border Grid.Row="1">
+                    <Grid Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTimers}" Text="No timers running. Use the + button to add a timer."/>
                         <ListBox Margin="0,10,0,10"
                                  Padding="5"
                                  x:Name="TIMERLISTCONTAINER"
-                                 IsVisible="True"
+                                 IsVisible="{Binding !HasNoTimers}" 
                                  ItemsSource="{Binding Timers}"
                                  Background="Transparent">
                             <ListBox.ItemsPanel>
@@ -294,6 +326,20 @@
                                                 Focus
                                             </Button>
                                             <TextBlock Text="{Binding DisplayTime}" VerticalAlignment="Center"/>
+                                            <Button x:Name="Pause"
+                                                    Classes="null_for_image"
+                                                    CommandParameter="{Binding}"
+                                                    Click="PauseTimer" 
+                                                    IsVisible="{Binding IsRunning}">
+                                                <Image Source="avares://HaveItMain/Assets/PauseBlack.png" Width="20" Height="20"/>
+                                            </Button>
+                                            <Button x:Name="Play" 
+                                                    Classes="null_for_image"
+                                                    CommandParameter="{Binding}"
+                                                    Click="ResumeTimer" 
+                                                    IsVisible="{Binding !IsRunning}">
+                                                <Image Source="avares://HaveItMain/Assets/PlayBlack.png" Width="20" Height="20"/>
+                                            </Button>
                                             <Button
                                                 HorizontalAlignment="Right"
                                                 Classes="null_for_image"
@@ -308,7 +354,7 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </Border>
+                    </Grid>
                 </Grid>
             </Border>   <!-- TIMERS-->
         </Grid> 

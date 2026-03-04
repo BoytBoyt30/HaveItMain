@@ -3,12 +3,19 @@ using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Reactive.Linq;
 using ReactiveUI;
 
 namespace HaveItMain.ViewModels;
 
 public class Dashboard : ViewModelBase, IHasTitle
 {
+    private readonly ObservableAsPropertyHelper<bool> _hasNoTasks;
+    private readonly ObservableAsPropertyHelper<bool> _hasNoTimers;
+    
+    public bool HasNoTasks => _hasNoTasks.Value;
+    public bool HasNoTimers => _hasNoTimers.Value;
+    
     private const string TasksFileName = "tasks.json";
     public ObservableCollection<TaskItemViewModel> Tasks { get; } = new();
     public ObservableCollection<TimerViewModel> Timers => App.State.Timers;
@@ -24,6 +31,12 @@ public class Dashboard : ViewModelBase, IHasTitle
     public Dashboard()
     {
         LoadTasks();
+        _hasNoTasks = this.WhenAnyValue(x => x.Tasks.Count)
+            .Select(count => count == 0)
+            .ToProperty(this, x => x.HasNoTasks);
+        _hasNoTimers = this.WhenAnyValue(x => x.Timers.Count)
+            .Select(count => count == 0)
+            .ToProperty(this, x => x.HasNoTimers);
     }
 
     public void AddTask(TaskItemViewModel task)

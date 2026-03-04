@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.VisualTree;
 using HaveItMain.ViewModels;
@@ -27,6 +28,22 @@ public partial class TimerView : UserControl
         {
             timer.Stop();                  // stop countdown
             App.State.Timers.Remove(timer); // remove from the shared collection
+        }
+    }
+    private async void AddTimerMethod(object? sender, RoutedEventArgs e)
+    {
+        var window = this.VisualRoot as Window;
+        if (window == null) return;
+
+        var dialog = new AddTimerMessage();
+        var result = await dialog.ShowDialog<TimerViewModel?>(window);
+
+        if (result != null)
+        {
+            if (DataContext is HaveItMain.ViewModels.Timer timerViewModel)
+            {
+                timerViewModel.AddTimer(result);
+            }
         }
     }
     

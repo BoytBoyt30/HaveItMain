@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using ReactiveUI;
 using System.Threading.Tasks;
@@ -39,27 +40,29 @@ public partial class DashboardView : UserControl
         }
     }
 
-    private async void SetTaskTimer(object? sender, PointerPressedEventArgs e)
+    private async void SetTaskTimerClick(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Pressed");
-        if (sender is Button btn &&
-            btn.DataContext is TimerViewModel timer &&
-            DataContext is Dashboard vm)
+        // 1. Get the Task from the button's DataContext
+        // Note: The Image is the sender if you put PointerPressed on the Image. 
+        // It's safer to check the parent if needed, but let's assume sender is the control holding the data.
+        if (sender is Control control && control.DataContext is TaskItemViewModel selectedTask)
         {
-            var SenderTask = sender as TaskItemViewModel;
-            var window = (Window)this.VisualRoot;
-
-            var dialog = new AddTimerMessage { PrefillTask = SenderTask };
-            
-            var result = await dialog.ShowDialog<TimerViewModel?>(window);
-            
-            if (result != null)
+            // 2. Get the Dashboard ViewModel (the DataContext of the UserControl itself)
+            if (this.DataContext is Dashboard vm)
             {
-                (DataContext as Dashboard)?.AddTimer(result);
+                var window = (Window)this.VisualRoot!;
+            
+                // 3. Open the dialog and pass the pre-filled task
+                var dialog = new AddTimerMessage { PrefillTask = selectedTask };
+                var result = await dialog.ShowDialog<TimerViewModel?>(window);
+            
+                if (result != null)
+                {
+                    vm.AddTimer(result);
+                }
             }
         }
     }
-    
     private async void AddTimerMethod(object? sender, PointerPressedEventArgs e)
     {
         var window = (Window)this.VisualRoot;
@@ -72,6 +75,17 @@ public partial class DashboardView : UserControl
         {
             (DataContext as Dashboard)?.AddTimer(result);
         }
+    }
+    private void PauseTimer(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.DataContext is TimerViewModel timer)
+            timer.Pause();
+    }
+
+    private void ResumeTimer(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.DataContext is TimerViewModel timer)
+            timer.Resume();
     }
 
     private void DeleteTask(object? sender, RoutedEventArgs e)

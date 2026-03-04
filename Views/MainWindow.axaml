@@ -111,7 +111,7 @@
         <Border Grid.Column="2" Background="{StaticResource ColorBackground}" ZIndex="0"> <!-- RIGHT BORDER MAIN CONTENT-->
             <Grid RowDefinitions="105, *">
                 <Border Grid.Row="0" Margin="0,35,0,0" BorderThickness="0,0,0,2" BorderBrush="{StaticResource BrushForeground}" Padding="0,0,0,16">
-                    <Grid ColumnDefinitions="240, 280, *, 300, 60">
+                    <Grid ColumnDefinitions="240, Auto, *, 300, 60">
                         <Border Grid.Column="0" >
                             <TextBlock
                                 Text="{Binding CurrentTitle}"
@@ -123,6 +123,7 @@
                         </Border>
                         <Border Grid.Column="1">
                             <!-- SEARCH CONTAINER -->
+                            <!--
                             <Border CornerRadius="10"
                                     Background="#F0F0F0"
                                     Padding="4"
@@ -131,12 +132,10 @@
                                     VerticalAlignment="Center">
 
                                 <Grid ColumnDefinitions="Auto,*">
-                                    <!-- Icon -->
                                     <TextBlock Text="🔍 "
                                                FontSize="13"
                                                Margin="13,0,20,0"
                                                VerticalAlignment="Center"/>
-                                    <!-- Input -->
                                     <TextBox Grid.Column="1"
                                              Watermark="Search..."
                                              BorderThickness="0"
@@ -146,6 +145,7 @@
                                              VerticalContentAlignment="Center"/>
                                 </Grid>
                             </Border>
+                            -->
                         </Border>
                         <Border Grid.Column="2"></Border>
                         <Border Grid.Column="3">
@@ -154,13 +154,14 @@
                                     <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click"> Username </TextBlock>
                                     <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click"> Pricing Plan </TextBlock>
                                 </StackPanel>
+                                <!--
                                 <Border
                                     PointerPressed="AccountSettings_Click"
                                     Margin="0,0,10,0" 
                                     CornerRadius="100" 
                                     Background="Gray" 
                                     Width="48" 
-                                    Height="48"/>
+                                    Height="48"/> -->
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="4" Padding="0,0, 0,0">

@@ -67,4 +67,9 @@ public partial class FocusMode : Window
                 timer.Resume();
         }
     }
+
+    private void CloseButton(object? sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }

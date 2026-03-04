@@ -42,91 +42,54 @@
         </Style>
     </UserControl.Styles>
     <Border>
-                <ListBox Margin="0,10,0,10"
-                                 Padding="5"
-                                 x:Name="TIMERLISTCONTAINER"
-                                 IsVisible="True"
-                                 ItemsSource="{Binding Timers}"
-                                 Background="Transparent">
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal"
-                                               ItemWidth="330"
-                                               ItemHeight="370"
-                                               ItemSpacing="20"
-                                               LineSpacing="20"/>
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate DataType="viewModels:TimerViewModel">
-                                    <Border
-                                            Margin="2"
-                                            BorderThickness="1"
-                                            BorderBrush="{StaticResource BrushPrimary}"
-                                            CornerRadius="12"
-                                            Padding="15"
-                                            Background="{StaticResource BrushBackground}">
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="Black"
-                                                              BlurRadius="6"
-                                                              OffsetX="0"
-                                                              OffsetY="4"
-                                                              Opacity="0.2"/>
-                                        </Border.Effect>
-                                        <Grid RowDefinitions="40, 40,*,50">
-                                            <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
-                                                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Spacing="20">
-                                                    <!--
-                                                    <Button Classes="null_for_image">
-                                                        <Image Source="avares://HaveItMain/Assets/Edit.png"
-                                                               Margin="0"
-                                                               Width="20"
-                                                               Height="20"
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center"/>
-                                                    </Button> -->
-                                                    <Button Classes="null_for_image" Click="DeleteTimer">
-                                                        <Image Source="avares://HaveItMain/Assets/Xbutton.png"
-                                                               Margin="0"
-                                                               Width="20"
-                                                               Height="20"
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center"/>
-                                                    </Button>
-                                                </StackPanel>
-                                            </Grid>
-                                            <Border Grid.Row="1">
-                                                <TextBlock Text="{Binding Title}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center"
-                                                           FontWeight="Bold"
-                                                           TextWrapping="Wrap"
-                                                           TextTrimming="CharacterEllipsis"/>
-                                            </Border>
-                                            <Border Grid.Row="2">
-                                                <Grid Width="120" Height="120">
-                                                    <!-- Insert Ring Here -->
-                                                    <!-- Animated progress arc -->
-                                                    <Path Stroke="{StaticResource BrushPrimary}"
-                                                          StrokeThickness="8"
-                                                          StrokeLineCap="Round"
-                                                          Data="{Binding Progress, Converter={StaticResource ProgressToArcConverter}, ConverterParameter=67}"/>
-                                                    <!-- Time text centered -->
-                                                    <StackPanel Margin="0,8,0,0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                                        <TextBlock Text="{Binding DisplayTime}"
-                                                                   FontWeight="Bold"
-                                                                   HorizontalAlignment="Center"
-                                                                   VerticalAlignment="Center"/>
-                                                        <Button x:Name="Pause" Classes="null_for_image" Click="PauseTimer" IsVisible="True">
-                                                            <Image Source="avares://HaveItMain/Assets/PauseBlack.png"
+        <Grid RowDefinitions="*,50">
+            <Grid Grid.Row="0">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTimers}" Text="No timers running. Use the + button to add a timer."/>
+                <ListBox IsVisible="{Binding !HasNoTimers}" 
+                         Margin="0,10,0,10"
+                         Padding="5"
+                         x:Name="TIMERLISTCONTAINER"
+                         ItemsSource="{Binding Timers}"
+                         Background="Transparent">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal"
+                                                   ItemWidth="330"
+                                                   ItemHeight="370"
+                                                   ItemSpacing="20"
+                                                   LineSpacing="20"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="viewModels:TimerViewModel">
+                                        <Border
+                                                Margin="2"
+                                                BorderThickness="1"
+                                                BorderBrush="{StaticResource BrushPrimary}"
+                                                CornerRadius="12"
+                                                Padding="15"
+                                                Background="{StaticResource BrushBackground}">
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="Black"
+                                                                  BlurRadius="6"
+                                                                  OffsetX="0"
+                                                                  OffsetY="4"
+                                                                  Opacity="0.2"/>
+                                            </Border.Effect>
+                                            <Grid RowDefinitions="40, 40,*,50">
+                                                <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+                                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Spacing="20">
+                                                        <!--
+                                                        <Button Classes="null_for_image">
+                                                            <Image Source="avares://HaveItMain/Assets/Edit.png"
                                                                    Margin="0"
                                                                    Width="20"
                                                                    Height="20"
                                                                    HorizontalAlignment="Center"
                                                                    VerticalAlignment="Center"/>
-                                                        </Button>
-                                                        <Button  x:Name="Play" Classes="null_for_image" Click="ResumeTimer" IsVisible="False">
-                                                            <Image Source="avares://HaveItMain/Assets/PlayBlack.png"
+                                                        </Button> -->
+                                                        <Button Classes="null_for_image" Click="DeleteTimer">
+                                                            <Image Source="avares://HaveItMain/Assets/Xbutton.png"
                                                                    Margin="0"
                                                                    Width="20"
                                                                    Height="20"
@@ -135,24 +98,72 @@
                                                         </Button>
                                                     </StackPanel>
                                                 </Grid>
-                                            </Border>
-                                            <Border Grid.Row="3">
-                                                <StackPanel Orientation="Horizontal"
-                                                            HorizontalAlignment="Center"
-                                                            VerticalAlignment="Bottom"
-                                                            Spacing="10">
-                                                    <Button Classes="Primary" Click="FocusModeEnable">
-                                                        Focus
-                                                    </Button>
-                                                    <Button Classes="Universal_Button" Click="DeleteTimer">
-                                                        Discard
-                                                    </Button>
-                                            </StackPanel>
-                                            </Border>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                </Border>
+                                                <Border Grid.Row="1">
+                                                    <TextBlock Text="{Binding Title}"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"
+                                                               FontWeight="Bold"
+                                                               TextWrapping="Wrap"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                </Border>
+                                                <Border Grid.Row="2">
+                                                    <Grid Width="120" Height="120">
+                                                        <!-- Insert Ring Here -->
+                                                        <!-- Animated progress arc -->
+                                                        <Path Stroke="{StaticResource BrushPrimary}"
+                                                              StrokeThickness="8"
+                                                              StrokeLineCap="Round"
+                                                              Data="{Binding Progress, Converter={StaticResource ProgressToArcConverter}, ConverterParameter=67}"/>
+                                                        <!-- Time text centered -->
+                                                        <StackPanel Margin="0,8,0,0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                            <TextBlock Text="{Binding DisplayTime}"
+                                                                       FontWeight="Bold"
+                                                                       HorizontalAlignment="Center"
+                                                                       VerticalAlignment="Center"/>
+                                                            <Button x:Name="Pause" 
+                                                                    Classes="null_for_image" 
+                                                                    Click="PauseTimer" 
+                                                                    IsVisible="{Binding IsRunning}">
+                                                                <Image Source="avares://HaveItMain/Assets/PauseBlack.png" Width="20" Height="20"/>
+                                                            </Button>
+                                                            <Button x:Name="Play" 
+                                                                    Classes="null_for_image" 
+                                                                    Click="ResumeTimer" 
+                                                                    IsVisible="{Binding !IsRunning}">
+                                                                <Image Source="avares://HaveItMain/Assets/PlayBlack.png" Width="20" Height="20"/>
+                                                            </Button>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                                <Border Grid.Row="3">
+                                                    <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Bottom"
+                                                                Spacing="10">
+                                                        <Button Classes="Primary" Click="FocusModeEnable">
+                                                            Focus
+                                                        </Button>
+                                                        <Button Classes="Universal_Button" Click="DeleteTimer">
+                                                            Discard
+                                                        </Button>
+                                                </StackPanel>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+            </Grid>
+            <Grid Row="1">
+                <Button Classes="null_for_image" HorizontalAlignment="Right" VerticalAlignment="Center" Click="AddTimerMethod">
+                    <Image Source="avares://HaveItMain/Assets/PLUS_BUTTON.png"
+                           Margin="4"
+                           Height="30"
+                           Width="30"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
 </UserControl>

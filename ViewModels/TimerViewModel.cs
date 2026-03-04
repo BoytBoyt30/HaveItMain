@@ -1,7 +1,9 @@
 using System;
 using System.Diagnostics;
 using System.Reactive.Linq;
+using Avalonia.Interactivity;
 using Avalonia.Threading;
+using HaveItMain.Views;
 using Microsoft.Toolkit.Uwp.Notifications;
 using ReactiveUI;
 
@@ -14,6 +16,15 @@ public class TimerViewModel : ViewModelBase
     private TimeSpan _duration;
     private readonly TimeSpan _totalDuration;
     private readonly bool isNotified = true;
+    private bool _isRunning;
+    public bool IsRunning
+    {
+        get => _isRunning;
+        set => this.RaiseAndSetIfChanged(ref _isRunning, value);
+    }
+    
+    
+    
     public double Progress => Math.Max(0, Duration.TotalSeconds / _totalDuration.TotalSeconds);
     public double DashOffset => (1 - Progress) * 100; // 100 = full circle length
     private bool _isOver;
@@ -43,19 +54,18 @@ public class TimerViewModel : ViewModelBase
         get => _isOver;
         set => this.RaiseAndSetIfChanged(ref _isOver, value);
     }
-
     public TimerViewModel(string title, TimeSpan duration, bool isNotified, bool isOver = false)
     {
         _title = title;
         _duration = duration;
         _isOver = isOver;
-        _totalDuration = duration;  // store original for progress
+        _totalDuration = duration;
         this.isNotified = isNotified;
     }
     
     public void Pause()
     {
-        // Just dispose the timer but don't reset Duration
+        IsRunning = false;
         _timerSubscription?.Dispose();
         _timerSubscription = null;
     }
@@ -63,6 +73,7 @@ public class TimerViewModel : ViewModelBase
     public void Resume()
     {
         if (IsOver || _timerSubscription != null) return; // already running or finished
+        IsRunning = true;
 
         _timerSubscription = Observable.Interval(TimeSpan.FromSeconds(1))
             .TakeWhile(_ => Duration.TotalSeconds > 0)
@@ -80,6 +91,7 @@ public class TimerViewModel : ViewModelBase
     
     public void Start()
     {
+        IsRunning = true;
         if (IsOver) return;
 
         // Dispose previous if any
@@ -106,30 +118,10 @@ public class TimerViewModel : ViewModelBase
                 });
             });
     }
-    public void Notify(string message) // REPLACE IN WINDOWS
+    public async void Notify(string message)
     {
-        try
-        {
-            string appleScript = $"display notification \"{message}\" with title \"HaveItMain\"";
-
-            var process = new ProcessStartInfo
-            {
-                FileName = "osascript",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
-
-            process.ArgumentList.Add("-e");
-            process.ArgumentList.Add(appleScript);
-
-            Process.Start(process);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Failed to show notification: " + ex.Message);
-        }
     }
+    
 
     public void Stop()
     {
