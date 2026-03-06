@@ -146,153 +146,130 @@
                              Classes="sidebar-tab"/>
             </StackPanel>
         </Border>
-
         <Panel Grid.Column="1">
             <ScrollViewer IsVisible="{Binding #TabAccountSettings.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
                     <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,0,0,18">
-                        <!--
-                        <Border Width="80" Height="80"
-                                CornerRadius="8"
-                                Background="#D0D0D0"
-                                VerticalAlignment="Top"
-                                Cursor="Hand"
-                                ToolTip.Tip="Click to upload profile picture">
-                            
-                            <TextBlock Text="+" FontSize="28" Foreground="#888"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                        </Border> -->
                         <StackPanel VerticalAlignment="Center" Spacing="3">
                             <TextBlock Text="Welcome [Insert String]!"
                                        FontSize="22" FontWeight="Bold"/>
                             <TextBlock Text="@username"
                                        FontSize="13" Foreground="#666666"/>
-                            <!--
-                            <StackPanel Orientation="Horizontal" Spacing="5">
-                                <TextBlock Text="0 Days Streak"
-                                           FontSize="13" Foreground="#666666"/>
-                                <Image Source="avares://HaveItMain/Assets/smenu.png"
-                                       Width="16" Height="16"
-                                       VerticalAlignment="Center"/>
-                            </StackPanel> -->
                         </StackPanel>
                     </StackPanel>
 
                     <Grid ColumnDefinitions="*, 24, *">
-
                         <StackPanel Grid.Column="0" Spacing="0">
-
                             <TextBlock Text="First Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
-
+                            
                             <TextBlock Text="Last Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
 
                             <TextBlock Text="Address" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
 
                             <TextBlock Text="Date of Birth" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
 
                             <TextBlock Text="Gender" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
 
                         </StackPanel>
 
-                        <StackPanel Grid.Column="2" Spacing="0">
-
+                        <Grid Grid.Column="2" Grid.RowDefinitions="*,200">
+                            <StackPanel>
                             <TextBlock Text="Contact Number" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="[data]" Foreground="#888888"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
 
                             <TextBlock Text="Password" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="•••••••••" Foreground="#555555"/>
-                                </Border>
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
-
+                            
                             <TextBlock Text="Re-Enter Password" Classes="field-label"/>
-                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,24">
-                                <Border Classes="data-box">
-                                    <TextBlock Text="•••••••••" Foreground="#555555"/>
-                                </Border>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
                                        Width="16" Height="16"
                                        Margin="8,0,0,0"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       Cursor="Hand"/>
                             </Grid>
-
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Right"
-                                        Spacing="10">
-                                <Button Content="Save Changes" Classes="btn-save"/>
-                                <Button Content="Cancel"       Classes="btn-cancel"/>
                             </StackPanel>
 
-                        </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        Spacing="10">
+                                <Button Content="Save Changes" Classes="Primary"/>
+                                <Button Content="Cancel"       Classes="Universal_Button"/>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                 </StackPanel>
             </ScrollViewer>
@@ -300,17 +277,16 @@
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
-                    <TextBlock Text="Data We Collect" Classes="section-header"/>
+                    <TextBlock Text="Data We Collect"/>
                     <StackPanel Spacing="3" Margin="10,0,0,16">
-                        <TextBlock Text="• Habits and progress data"               FontSize="13"/>
-                        <TextBlock Text="• Optional profile info (name, email)"    FontSize="13"/>
-                        <TextBlock Text="• Device info (for syncing/bug fixes)"    FontSize="13"/>
+                        <TextBlock Text="• Habits and progress data"/>
+                        <TextBlock Text="• Optional profile info (name, email)"/>
+                        <TextBlock Text="• Device info (for syncing/bug fixes)"/>
                     </StackPanel>
-                    <TextBlock Text="User Data Control" Classes="section-header"/>
+                    <TextBlock Text="User Data Control"/>
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto, Auto"
                           Margin="0,0,0,20">
-
                         <TextBlock Grid.Row="0" Grid.Column="0"
                                    Text="Export Data (.json)"
                                    VerticalAlignment="Center"
@@ -337,10 +313,9 @@
                                 Classes="btn-delete"/>
                     </Grid>
 
-                    <TextBlock Text="System Permissions" Classes="section-header"/>
+                    <TextBlock Text="System Permissions"/>
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto">
-
                         <TextBlock Grid.Row="0" Grid.Column="0"
                                    Text="Notifications"
                                    VerticalAlignment="Center"
