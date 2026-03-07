@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ReactiveUI;
 using System.Reactive.Linq;
@@ -21,6 +22,12 @@ namespace HaveItMain.ViewModels
             get => _currentViewModel;
             set => this.RaiseAndSetIfChanged(ref _currentViewModel, value);
         }
+        
+        public List<string> SearchSuggestions { get; } = new()
+        {
+            "task","Timer", "Streak", "Settings", "Account Settings", "New Task", "New Timer", "Add Timer", "Add Task", "Account"
+        };
+        
         // Reactive Title
         private string _currentTitle;
         public string CurrentTitle

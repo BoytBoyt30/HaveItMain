@@ -124,10 +124,135 @@ public partial class MainWindow : Window
             }
         }
     }
+    
+    private async void NEW_TIMER(object? sender, RoutedEventArgs e)
+    {
+        var dialog = new AddTimerMessage();
+        var result = await dialog.ShowDialog<TimerViewModel?>(this);
+
+        if (result != null)
+        {
+            if (DataContext is MainWindowViewModel mainVM)
+            {
+                if (mainVM.CurrentViewModel is Dashboard dashboardVM)
+                {
+                    dashboardVM.AddTimer(result);
+                }
+                else
+                {
+                    mainVM.State.Timers.Add(result);
+                }
+            }
+        }
+    }
 
     private void Landing(object? sender, RoutedEventArgs e)
     {
         var landing = new AboutNoLogin_();
         landing.Show();
+    }
+    
+    private async void Search_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if (sender is AutoCompleteBox box && box.SelectedItem is string selected)
+        {
+            // 1. Force the UI to close the dropdown immediately
+            box.IsDropDownOpen = false;
+        
+            // 2. Clear the selection so it doesn't re-trigger
+            box.SelectedItem = null;
+            box.Text = string.Empty;
+
+            // 3. Kill focus so the cursor disappears
+            this.Focus();
+            
+            await System.Threading.Tasks.Task.Delay(100);
+
+            // 5. Run your navigation
+            ExecuteNavigation(selected);
+        }
+    }
+    private void Search_KeyDown(object? sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            if (sender is AutoCompleteBox box)
+            {
+                string query = box.SelectedItem?.ToString() ?? box.Text;
+
+                if (string.IsNullOrWhiteSpace(query)) return;
+
+                // 1. Run your navigation/dialog logic
+                ExecuteNavigation(query);
+            
+                // 2. Clear the text
+                box.Text = string.Empty;
+                box.SelectedItem = null;
+
+                // 3. THE HCI FIX: Kill focus on the search bar
+                // Focusing the Window itself forces the TextBox to release its "Active" state
+                this.Focus(); 
+            
+                // Optional: If you want to be extra sure the cursor disappears:
+                e.Handled = true; 
+            }
+        }
+    }
+
+// Helper to keep your code DRY (Don't Repeat Yourself)
+    private void ExecuteNavigation(string query)
+    {
+        // Make it case-insensitive for better UX
+// Make it case-insensitive for better UX
+        // Everything in the 'case' must be LOWERCASE now
+        switch (query.ToLower().Trim())
+        {
+            case "dashboard":
+            case "streak":
+                Dashboard_Click(null, new RoutedEventArgs());
+                break;
+
+            case "timer":
+                Timer_Click(null, new RoutedEventArgs());
+                break;
+
+            case "add timer":
+            case "new timer":
+                // Make sure NEW_TIMER is defined in your MainWindow.axaml.cs
+                NEW_TIMER(null, new RoutedEventArgs());
+                break;
+
+            case "settings":
+                Settings_Click(null, new RoutedEventArgs());
+                break;
+
+            case "account":
+            case "account settings":
+                AccountSettings_Click(null, new RoutedEventArgs());
+                break;
+
+            case "task":
+            case "add task":
+            case "new task":
+            case "new routine": // Adding this since your method is named NEW_ROUTINE
+                NEW_ROUTINE(null, new RoutedEventArgs());
+                break;
+        }
+    }
+    
+    private void MainContainer_PointerPressed(object? sender, PointerPressedEventArgs e)
+    {
+        Console.WriteLine("Pressed");
+        // This tells the Window to grab focus, which forces the 
+        // AutoCompleteBox to lose its focus and cursor.
+        this.Focus();
+    
+        if (GlobalSearch != null)
+        {
+            GlobalSearch.IsDropDownOpen = false;
+        }
+
+        // Force focus to the Grid, which pulls it out of the AutoCompleteBox
+        Windowgrid.Focus();
     }
 }

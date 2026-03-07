@@ -18,7 +18,7 @@
         Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
         Title="Have-It">
     
-    <Grid x:Name="Windowgrid" ColumnDefinitions="72,87,* ,30" Background="{StaticResource BrushBackground}">
+    <Grid x:Name="Windowgrid" Focusable="True" ColumnDefinitions="72,87,* ,30" PointerPressed="MainContainer_PointerPressed" Background="{StaticResource BrushBackground}">
         <Border 
             x:Name="LEFTMENUBAR"
             Grid.Column="0"
@@ -124,12 +124,11 @@
                         </Border>
                         <Border Grid.Column="1">
                             <!-- SEARCH CONTAINER -->
-                            <!--
                             <Border CornerRadius="10"
                                     Background="#F0F0F0"
                                     Padding="4"
                                     Margin="10,0"
-                                    HorizontalAlignment="Stretch"
+                                    Width="300"
                                     VerticalAlignment="Center">
 
                                 <Grid ColumnDefinitions="Auto,*">
@@ -137,16 +136,19 @@
                                                FontSize="13"
                                                Margin="13,0,20,0"
                                                VerticalAlignment="Center"/>
-                                    <TextBox Grid.Column="1"
+                                    <AutoCompleteBox Grid.Column="1"
+                                                     x:Name="GlobalSearch"
                                              Watermark="Search..."
+                                             ItemsSource="{Binding SearchSuggestions}"
+                                             SelectionChanged="Search_SelectionChanged"
+                                             KeyDown="Search_KeyDown"
+                                             FilterMode="Contains"
                                              BorderThickness="0"
                                              Background="Transparent"
                                              HorizontalAlignment="Stretch"
-                                             VerticalAlignment="Center"
-                                             VerticalContentAlignment="Center"/>
+                                             VerticalAlignment="Center"/>
                                 </Grid>
                             </Border>
-                            -->
                         </Border>
                         <Border Grid.Column="2"></Border>
                         <Border Grid.Column="3">
