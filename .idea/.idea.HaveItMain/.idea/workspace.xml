@@ -8,29 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/EyeClosed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/EyeOpen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/SessionData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/LogIn.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/LogIn.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/SignUp.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/SignUp.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AccountPersistence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Landing.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Landing.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Landing.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Landing.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +118,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;.NET Project.HaveItMain.executor&quot;: &quot;Run&quot;,
+    &quot;Publish to folder.HaveItBetaVersion_v1.executor&quot;: &quot;Run&quot;,
     &quot;Publish to folder.SampleRelease.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -145,7 +134,15 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.HaveItMain">
+  <component name="RunManager" selected="Publish to folder.HaveItBetaVersion_v1">
+    <configuration name="HaveItBetaVersion_v1" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" self_contained="true" target_folder="D:/PublishTest2" target_framework="net8.0-windows10.0.19041.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
     <configuration name="SampleRelease" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" target_folder="$USER_HOME$/Documents/CODING/HaveItTest" target_framework="net9.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
         <runtimes>
@@ -155,9 +152,9 @@
       <method v="2" />
     </configuration>
     <configuration name="HaveItMain" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Release/net8.0-windows10.0.17763.0/HaveItMain.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Release/net8.0-windows10.0.17763.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -170,11 +167,16 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net8.0-windows10.0.17763.0" />
       <method v="2">
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Project.HaveItMain" />
+      <item itemvalue="Publish to folder.HaveItBetaVersion_v1" />
+      <item itemvalue="Publish to folder.SampleRelease" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -223,7 +225,8 @@
       <workItem from="1772797299478" duration="90000" />
       <workItem from="1772797639622" duration="1406000" />
       <workItem from="1772799497622" duration="1165000" />
-      <workItem from="1772845008812" duration="18840000" />
+      <workItem from="1772845008812" duration="19167000" />
+      <workItem from="1772871290580" duration="2169000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -449,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772854335570</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="ENTIRE APP IS DONE WITHOUT HCI YETTT">
+      <option name="closed" value="true" />
+      <created>1772870848269</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1772870848269</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +481,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="DESIGN for DASHBOARD" />
     <MESSAGE value="GOOD WORK" />
     <MESSAGE value="Added Working Task System with DELETING" />
     <MESSAGE value="new codes" />
@@ -495,7 +505,8 @@
     <MESSAGE value="lgtm" />
     <MESSAGE value="Account Editing Works Now" />
     <MESSAGE value="Search Works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search Works" />
+    <MESSAGE value="ENTIRE APP IS DONE WITHOUT HCI YETTT" />
+    <option name="LAST_COMMIT_MESSAGE" value="ENTIRE APP IS DONE WITHOUT HCI YETTT" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using HaveItMain.Services;
 using HaveItMain.ViewModels;
 using HaveItMain.Views;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace HaveItMain;
 
@@ -12,6 +13,7 @@ public partial class App : Application
     public static AppState ServiceState { get; set; } = new();
     public override void Initialize()
     {
+        ToastNotificationManagerCompat.History.Clear();
         AvaloniaXamlLoader.Load(this);
     }
 
