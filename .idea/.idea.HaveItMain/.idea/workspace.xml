@@ -9,7 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +197,8 @@
       <workItem from="1772797120185" duration="153000" />
       <workItem from="1772797299478" duration="90000" />
       <workItem from="1772797639622" duration="1406000" />
-      <workItem from="1772799497622" duration="1156000" />
+      <workItem from="1772799497622" duration="1165000" />
+      <workItem from="1772845008812" duration="1441000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -389,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772799552633</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="adad">
+      <option name="closed" value="true" />
+      <created>1772810962515</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1772810962515</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +445,8 @@
     <MESSAGE value="Travy Patty" />
     <MESSAGE value="giving up to perfect the streak backend, but it works cuh." />
     <MESSAGE value="FINISHED ALL TABS (Dashboard Streak still needs repair but its visually good)" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINISHED ALL TABS (Dashboard Streak still needs repair but its visually good)" />
+    <MESSAGE value="adad" />
+    <option name="LAST_COMMIT_MESSAGE" value="adad" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

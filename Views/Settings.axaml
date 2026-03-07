@@ -205,6 +205,8 @@
                             Click="IncreaseFont"
                             HorizontalAlignment="Right"/>
                 </Grid>
+                
+                <!--
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="Dark Mode"
@@ -223,7 +225,7 @@
                               Grid.Column="2"
                               Classes="Primary toggle-btn"
                               HorizontalAlignment="Stretch"/>
-                
+                -->
                 <TextBlock Grid.Column="0" Grid.Row="3" Classes="setting-label" Text="Enable Tactile SFX"/>
                 <ToggleButton Grid.Row="3"
                               Grid.Column="2"

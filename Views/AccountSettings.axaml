@@ -22,7 +22,6 @@
             <Setter Property="VerticalContentAlignment"   Value="Center"/>
             <Setter Property="Padding"                    Value="8,10"/>
             <Setter Property="Margin"                     Value="0,4"/>
-            <Setter Property="FontSize"                   Value="13"/>
             <Setter Property="Foreground"                 Value="#333333"/>
             <Setter Property="Cursor"                     Value="Hand"/>
             <Setter Property="Template">
@@ -53,11 +52,10 @@
             <Setter Property="Background" Value="#F8F8F8"/>
         </Style>
         <Style Selector="CheckBox.yellow-check:checked /template/ Border#NormalRectangle">
-            <Setter Property="Background"  Value="#FFCC00"/>
-            <Setter Property="BorderBrush" Value="#FFCC00"/>
+            <Setter Property="Background"  Value="{StaticResource BrushPrimary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BrushPrimary}"/>
         </Style>
         <Style Selector="TextBlock.field-label">
-            <Setter Property="FontSize"   Value="12"/>
             <Setter Property="Foreground" Value="#555555"/>
             <Setter Property="Margin"     Value="0,0,0,4"/>
         </Style>
@@ -99,16 +97,13 @@
         </Style>
         <Style Selector="TextBlock.section-header">
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize"   Value="14"/>
             <Setter Property="Margin"     Value="0,6,0,6"/>
         </Style>
         <Style Selector="TextBlock.faq-q">
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize"   Value="13"/>
             <Setter Property="Margin"     Value="0,10,0,2"/>
         </Style>
         <Style Selector="TextBlock.faq-a">
-            <Setter Property="FontSize"      Value="13"/>
             <Setter Property="TextWrapping"  Value="Wrap"/>
             <Setter Property="Foreground"    Value="#333333"/>
         </Style>
@@ -136,10 +131,11 @@
                              Content="Terms &amp; Conditions"
                              GroupName="AccountTabs"
                              Classes="sidebar-tab"/>
+                <!--
                 <RadioButton x:Name="TabPlans"
                              Content="Plans &amp; Pricing"
                              GroupName="AccountTabs"
-                             Classes="sidebar-tab"/>
+                             Classes="sidebar-tab"/> -->
                 <RadioButton x:Name="TabHelpDesk"
                              Content="Help Desk"
                              GroupName="AccountTabs"
@@ -164,7 +160,7 @@
                         <StackPanel Grid.Column="0" Spacing="0">
                             <TextBlock Text="First Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="First Name">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -176,7 +172,7 @@
                             
                             <TextBlock Text="Last Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Last Name">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -188,7 +184,7 @@
 
                             <TextBlock Text="Address" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Address">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -200,7 +196,7 @@
 
                             <TextBlock Text="Date of Birth" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Date of Birth">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -212,7 +208,7 @@
 
                             <TextBlock Text="Gender" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Gender">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -228,7 +224,7 @@
                             <StackPanel>
                             <TextBlock Text="Contact Number" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Contact Number">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -240,7 +236,7 @@
 
                             <TextBlock Text="Password" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="*********">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -252,7 +248,7 @@
                             
                             <TextBlock Text="Re-Enter Password" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="***********">
                                 </TextBox>
                                 <Image Grid.Column="1"
                                        Source="avares://HaveItMain/Assets/Edit.png"
@@ -340,14 +336,13 @@
                 <StackPanel Margin="4,0,16,24" Spacing="0">
 
                     <TextBlock Text="Terms and Conditions: Last updated 03/01/2026"
-                               FontWeight="Bold" FontSize="13"
+                               FontWeight="Bold"
                                Margin="0,0,0,14"/>
 
                     <TextBlock Text="Acceptance of Terms" Classes="section-header"/>
                     <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,16">
                         <TextBlock Grid.Column="0"
                                    TextWrapping="Wrap"
-                                   FontSize="13"
                                    Text="By creating an account or using Have-It you agree to these Terms and Conditions. If you do not agree, please discontinue use of the app."/>
                         <CheckBox Grid.Column="1"
                                   Classes="yellow-check"
@@ -357,34 +352,34 @@
 
                     <TextBlock Text="Description of Service" Classes="section-header"/>
                     <TextBlock TextWrapping="Wrap"
-                               FontSize="13"
                                Margin="0,0,0,16"
                                Text="The app provides tools for tracking habits, setting reminders, and viewing progress statistics for personal productivity and self-improvement purposes."/>
 
                     <TextBlock Text="User Responsibilities" Classes="section-header"/>
                     <StackPanel Spacing="4" Margin="10,0,0,0">
-                        <TextBlock FontSize="13" Text="• Provide accurate information when creating an account"/>
-                        <TextBlock FontSize="13" Text="• Use the app only for lawful purposes"/>
-                        <TextBlock FontSize="13" Text="• Not attempt to disrupt, hack, or misuse the service"/>
+                        <TextBlock Text="• Provide accurate information when creating an account"/>
+                        <TextBlock Text="• Use the app only for lawful purposes"/>
+                        <TextBlock Text="• Not attempt to disrupt, hack, or misuse the service"/>
                     </StackPanel>
 
                 </StackPanel>
             </ScrollViewer>
+            <!--
             <ScrollViewer IsVisible="{Binding #TabPlans.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="6">
                     <TextBlock Text="Plans &amp; Pricing"
-                               FontSize="20" FontWeight="Bold"
+                               FontWeight="Bold"
                                Margin="0,0,0,8"/>
                     <TextBlock Text="Choose the plan that works best for you."
-                               FontSize="13" Foreground="#666666"/>
+                               Foreground="#666666"/>
                     
                     <TextBlock Text="Pricing information will be loaded here."
-                               FontSize="13" Foreground="#AAAAAA"
+                               Foreground="#AAAAAA"
                                FontStyle="Italic" Margin="0,20,0,0"/>
                 </StackPanel>
-            </ScrollViewer>
+            </ScrollViewer> -->
 
             <ScrollViewer IsVisible="{Binding #TabHelpDesk.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
