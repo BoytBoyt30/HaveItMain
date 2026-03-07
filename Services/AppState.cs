@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using HaveItMain.ViewModels;
 using ReactiveUI;
@@ -81,16 +82,43 @@ public class AppState : ReactiveObject
         {
             try
             {
+                // 1. Load all accounts
                 string json = System.IO.File.ReadAllText("accounts.json");
                 var loadedAccounts = System.Text.Json.JsonSerializer.Deserialize<List<Account>>(json);
                 if (loadedAccounts != null)
                 {
                     AllAccounts = new ObservableCollection<Account>(loadedAccounts);
+
+                    // 2. NEW: Check the SessionService to see who was last here
+                    var sessionService = new SessionService();
+                    var session = sessionService.LoadSession();
+
+                    if (session.IsSignedIn && !string.IsNullOrEmpty(session.LastUsername))
+                    {
+                        // 3. Try to find that specific user
+                        var savedUser = AllAccounts.FirstOrDefault(a => a.Username == session.LastUsername);
+                        if (savedUser != null)
+                        {
+                            UserAccount = savedUser;
+                            IsLoggedIn = true;
+                        }
+                        else 
+                        {
+                            // Fallback: Session user exists but isn't in accounts.json anymore
+                            UserAccount = AllAccounts.FirstOrDefault() ?? new Account();
+                        }
+                    }
+                    else
+                    {
+                        // Fallback: No session saved, just grab the first one
+                        UserAccount = AllAccounts.FirstOrDefault() ?? new Account();
+                    }
                 }
             }
-            catch { /* Handle corrupted JSON if needed */ }
+            catch { /* Handle corrupted JSON */ }
         }
     }
+    
     
     public async Task ExportTasks(string destinationPath)
     {

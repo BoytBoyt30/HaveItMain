@@ -125,6 +125,7 @@ public class TimerViewModel : ViewModelBase
                     if (Duration.TotalSeconds <= 0)
                     {
                         IsOver = true;
+                        NotificationService.Show($"Timer ({Title}) is finished!");
                         if (_linkedTask != null)
                             _linkedTask.IsFinished = true;
                         if (isNotified)

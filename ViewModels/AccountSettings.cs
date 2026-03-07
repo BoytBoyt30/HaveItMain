@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using CommunityToolkit.Mvvm.Input;
 using HaveItMain.Services;
 using ReactiveUI;
 
 namespace HaveItMain.ViewModels;
 
-public class AccountSettings : ViewModelBase, IHasTitle
+public partial class AccountSettings : ViewModelBase, IHasTitle
 {
     public string Title => "ACCOUNT";
     private readonly AppState _state;
@@ -84,9 +85,9 @@ public class AccountSettings : ViewModelBase, IHasTitle
     }
     
     
-    public void SaveChanges(List<Account> accounts) // Change the parameter to List<Account>
+    public void SaveChanges() 
     {
-// 1. Sync sandbox to real state
+        // 1. Sync sandbox (what's in the textboxes) to real state (the account in the list)
         _state.UserAccount.FirstName = EditableAccount.FirstName;
         _state.UserAccount.LastName = EditableAccount.LastName;
         _state.UserAccount.Address = EditableAccount.Address;
@@ -95,12 +96,20 @@ public class AccountSettings : ViewModelBase, IHasTitle
         _state.UserAccount.ContactNumber = EditableAccount.ContactNumber;
         _state.UserAccount.Password = EditableAccount.Password;
 
-        // 2. Lock the UI
+        // 2. Lock the UI (The "Pencils" go away)
         DisableAllEditing();
 
-        // 3. Save the WHOLE list. 
-        // Now that the Service expects a List, this line won't error!
+        // 3. Save the WHOLE list to accounts.json
         _accountPersistence.Save(_state.AllAccounts.ToList());
+
+        // 4. Update the "Last Logged In" session
+        // NOTE: Use _state.UserAccount.Username because 'UserAccount' 
+        // usually belongs to the State, not the ViewModel directly.
+        var sessionService = new SessionService();
+        sessionService.SaveSession(true, _state.UserAccount.Username);
+
+        // 5. Trigger your new Snackbar!
+        NotificationService.Show("Changes Saved");
     }
     
     public void CancelChanges()
@@ -122,13 +131,54 @@ public class AccountSettings : ViewModelBase, IHasTitle
         EditableAccount.IsAddressEditing = false;
         EditableAccount.IsPasswordEditing = false;
     }
-    public void ToggleFirstNameEdit() => EditableAccount.IsFirstNameEditing = true;
-    public void ToggleLastNameEdit() => EditableAccount.IsLastNameEditing = true;
-    public void ToggleBdayEdit() => EditableAccount.IsBirthDateEditing = true;
-    public void ToggleGenderEdit() => EditableAccount.IsGenderEditing = true;
-    public void ToggleContactEdit() => EditableAccount.IsContactNumberEditing = true;
-    public void ToggleAddressEdit() => EditableAccount.IsAddressEditing = true;
-    public void TogglePasswordEdit() => EditableAccount.IsPasswordEditing = true;
+    [RelayCommand]
+    public void ToggleFirstNameEdit()
+    {
+        EditableAccount.IsFirstNameEditing = !EditableAccount.IsFirstNameEditing;
+        if (EditableAccount.IsFirstNameEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void ToggleLastNameEdit()
+    {
+        EditableAccount.IsLastNameEditing = !EditableAccount.IsLastNameEditing;
+        if (EditableAccount.IsLastNameEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void ToggleBdayEdit()
+    {
+        EditableAccount.IsBirthDateEditing = !EditableAccount.IsBirthDateEditing;
+        if (EditableAccount.IsBirthDateEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void ToggleGenderEdit()
+    {
+        EditableAccount.IsGenderEditing = !EditableAccount.IsGenderEditing;
+        if (EditableAccount.IsGenderEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void ToggleContactEdit()
+    {
+        EditableAccount.IsContactNumberEditing = !EditableAccount.IsContactNumberEditing;
+        if (EditableAccount.IsContactNumberEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void ToggleAddressEdit()
+    {
+        EditableAccount.IsAddressEditing = !EditableAccount.IsAddressEditing;
+        if (EditableAccount.IsAddressEditing) NotificationService.Show("Field is now editable");
+    }
+
+    [RelayCommand]
+    public void TogglePasswordEdit()
+    {
+        EditableAccount.IsPasswordEditing = !EditableAccount.IsPasswordEditing;
+        if (EditableAccount.IsPasswordEditing) NotificationService.Show("Field is now editable");
+    }
 
     public void EraseAllData()
     {

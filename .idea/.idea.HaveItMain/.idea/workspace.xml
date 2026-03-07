@@ -8,9 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/NotificationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
@@ -46,6 +52,7 @@
     <setting file="file://$PROJECT_DIR$/App.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Converters/ProgressToArcConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NotificationService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/Account.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AccountPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AppState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -222,7 +229,8 @@
       <workItem from="1772845008812" duration="19167000" />
       <workItem from="1772871290580" duration="2185000" />
       <workItem from="1772889706716" duration="112000" />
-      <workItem from="1772889838879" duration="453000" />
+      <workItem from="1772889838879" duration="741000" />
+      <workItem from="1772890600175" duration="2659000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -464,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772873860336</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="savefile">
+      <option name="closed" value="true" />
+      <created>1772890569862</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1772890569862</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +501,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Working Task System with DELETING" />
     <MESSAGE value="new codes" />
     <MESSAGE value="FINISHED MOST OF THE TASK BACKEND" />
     <MESSAGE value="Edit Fix + Dialogue" />
@@ -510,7 +525,8 @@
     <MESSAGE value="Search Works" />
     <MESSAGE value="ENTIRE APP IS DONE WITHOUT HCI YETTT" />
     <MESSAGE value="WORKING VERSION for PUBLISH" />
-    <option name="LAST_COMMIT_MESSAGE" value="WORKING VERSION for PUBLISH" />
+    <MESSAGE value="savefile" />
+    <option name="LAST_COMMIT_MESSAGE" value="savefile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

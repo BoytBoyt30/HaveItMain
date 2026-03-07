@@ -162,9 +162,9 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="@"
-                                           FontSize="13" Foreground="#666666"/>
+                                            Foreground="#666666"/>
                                 <TextBlock Text="{Binding State.UserAccount.Username}"
-                                           FontSize="13" Foreground="#666666"/>
+                                           Foreground="#666666"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

@@ -17,8 +17,8 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
         Title="Have-It">
-    
-    <Grid x:Name="Windowgrid" Focusable="True" ColumnDefinitions="72,87,* ,30" PointerPressed="MainContainer_PointerPressed" Background="{StaticResource BrushBackground}">
+    <Panel>
+        <Grid x:Name="Windowgrid" Focusable="True" ColumnDefinitions="72,87,* ,30" PointerPressed="MainContainer_PointerPressed" Background="{StaticResource BrushBackground}">
         <Border 
             x:Name="LEFTMENUBAR"
             Grid.Column="0"
@@ -208,5 +208,29 @@
             </Grid>
         </Border>
     </Grid>
+        <Border x:Name="GlobalSnackbar"
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Center"
+                Margin="0,0,0,50" 
+                Padding="15,10"
+                Background="#4d4d4d" 
+                BorderThickness="2"
+                CornerRadius="4"
+                Opacity="0" 
+                IsHitTestVisible="False">
+            
+            <Border.Transitions>
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.5"/>
+                </Transitions>
+            </Border.Transitions>
 
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock x:Name="SnackbarText" 
+                           Foreground="White" 
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Panel>
 </Window>

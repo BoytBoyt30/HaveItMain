@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -18,7 +19,22 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        NotificationService.OnShowNotification += message => 
+        {
+            // We use Dispatcher to ensure the UI update happens on the main thread
+            Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(() => TriggerSnackbar(message));
+        };
         // DataContext = new MainWindowViewModel();
+    }
+    
+    private async void TriggerSnackbar(string message)
+    {
+        SnackbarText.Text = message;
+        GlobalSnackbar.Opacity = 1;
+    
+        await Task.Delay(2500); // How long it stays visible
+    
+        GlobalSnackbar.Opacity = 0;
     }
 
     public void initialize_core_settings()
