@@ -8,6 +8,7 @@ namespace HaveItMain.Services;
 public class AppState : ReactiveObject
 {
     private bool _streakStarted = false;
+    public Account account_session;
     
     public bool StreakStarted
     {

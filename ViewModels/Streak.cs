@@ -8,31 +8,35 @@ namespace HaveItMain.ViewModels;
 public class Streak : ViewModelBase, IHasTitle
 {
     public string Title => "STREAK";
-    
     public AppState State => _state;
     public readonly AppState _state;
     private readonly StreakPersistenceService _persistence;
+
+    // --- COMPUTED PROPERTIES (The "Windows" into your State) ---
     public bool StreakStarted => _state.StreakStarted;
+    
+    // Fix: Point these to the actual data in the state
+    public string FormattedStartDate => _state.CurrentStreak?.StartDate.ToString("MMMM dd, yyyy") ?? "No Start Date";
+    public bool IsTodayCompleted => _state.CurrentStreak?.IsTodayDone ?? false;
+    public int CurrentTally => _state.CurrentStreak?.CompletedDaysCount ?? 0;
     
     public bool Is7DayStreak => _state.CurrentStreak?.DurationDays == 7;
     public bool Is14DayStreak => _state.CurrentStreak?.DurationDays == 14;
-    public bool IsStreakOver => _state.CurrentStreak?.Status == StreakStatus.Completed || _state.CurrentStreak?.Status == StreakStatus.Broken;
-    public bool IsStreakSuccess => _state.CurrentStreak?.Status == StreakStatus.Completed;
-    public bool IsStreakFailed => _state.CurrentStreak?.Status == StreakStatus.Broken;
 
     public Streak(AppState state)
     {
         _state = state;
         _persistence = new StreakPersistenceService();
 
-// This tells the UI: "Something inside the Streak changed, re-check all fire bindings!"
-        _state.WhenAnyValue(x => x.CurrentStreak)
+        // Watch BOTH the streak object and the started boolean
+        _state.WhenAnyValue(x => x.CurrentStreak, x => x.StreakStarted)
             .Subscribe(_ => {
-                this.RaisePropertyChanged(nameof(state));
+                // Use the EXACT names of the public properties in THIS class
+                this.RaisePropertyChanged(nameof(State));
+                this.RaisePropertyChanged(nameof(StreakStarted));
                 this.RaisePropertyChanged(nameof(Is7DayStreak));
                 this.RaisePropertyChanged(nameof(Is14DayStreak));
             });
-        Console.WriteLine($"Streak Started: {_state.StreakStarted}");
     }
     
     
@@ -41,14 +45,15 @@ public class Streak : ViewModelBase, IHasTitle
         var newStreak = new Services.STREAK 
         { 
             StartDate = DateTime.Today, 
-            DurationDays = 7 
+            DurationDays = 7,
+            // PASS THE SERVICE HERE
+            NotificationService = _state.NotificationService 
         };
         newStreak.GenerateDays();
-        
+    
         _state.CurrentStreak = newStreak;
         _state.StreakStarted = true;
-        
-        _persistence.Save(newStreak); 
+        _persistence.Save(newStreak);
         
         Console.WriteLine("New streak created and saved to streak.json!");
     }

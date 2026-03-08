@@ -154,9 +154,8 @@
                                 <StackPanel Orientation="Vertical" Margin="0,0,20,0" VerticalAlignment="Center">
                                     <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click" Cursor="Hand"> Username </TextBlock>
                                     <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click" Cursor="Hand"> Pricing Plan </TextBlock>
-                                </StackPanel>
-                                <!--
-                                <Border
+                                </StackPanel> 
+                                <!--<Border
                                     PointerPressed="AccountSettings_Click"
                                     Margin="0,0,10,0" 
                                     CornerRadius="100" 

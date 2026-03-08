@@ -8,22 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/HaveItDawg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/OrangeStreak.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreakFire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Account.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/PersistenceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/PersistenceService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/STREAK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/STREAK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/StreakDay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/StreakDay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/StreakService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/StreakService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/Streak.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Streak.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Streak.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/App.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Converters/ProgressToArcConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/Account.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AppState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/PersistenceService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/STREAK.cs" root0="FORCE_HIGHLIGHTING" />
@@ -204,7 +201,7 @@
       <workItem from="1772640176679" duration="777000" />
       <workItem from="1772701797577" duration="3545000" />
       <workItem from="1772705899530" duration="14234000" />
-      <workItem from="1772775046621" duration="3914000" />
+      <workItem from="1772775046621" duration="12431000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -366,7 +363,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772723745568</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Streak Backend">
+      <option name="closed" value="true" />
+      <created>1772778974392</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1772778974392</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Travy Patty">
+      <option name="closed" value="true" />
+      <created>1772779567928</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1772779567928</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +420,9 @@
     <MESSAGE value="Before i end up destroying this shit" />
     <MESSAGE value="Windows Only" />
     <MESSAGE value="Streak Page Basics are finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Streak Page Basics are finished" />
+    <MESSAGE value="Streak Backend" />
+    <MESSAGE value="Travy Patty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Travy Patty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

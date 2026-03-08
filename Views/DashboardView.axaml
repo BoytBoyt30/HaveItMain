@@ -197,24 +197,20 @@
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
                                                     Spacing="20">
-
                                             <Button Classes="null_for_image" Click="SetTaskTimerClick">
                                                 <Image Source="avares://HaveItMain/Assets/tmenu.png"
                                                        Width="25"
                                                        Height="25"/>
                                             </Button>
-
                                             <CheckBox IsChecked="{Binding IsFinished, Mode=TwoWay}"
                                                       Width="25"
                                                       Height="25"/>
-
                                             <Button Click="DeleteTask"
                                                     Classes="null_for_image">
                                                 <Image Source="avares://HaveItMain/Assets/Xbutton.png"
                                                        Width="19"
                                                        Height="19"/>
                                             </Button>
-
                                         </StackPanel>
                                     </Grid>
                                 </Border>

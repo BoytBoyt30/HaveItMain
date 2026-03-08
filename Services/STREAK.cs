@@ -10,6 +10,7 @@ namespace HaveItMain.Services;
 public class STREAK : ReactiveObject
 {
     public DateTime StartDate { get; set; }
+    public int CompletedDaysCount => Days.Count(d => d.IsCompleted);
     public int DurationDays { get; set; }
 
     public ObservableCollection<StreakDay> Days { get; set; } = new();
@@ -17,6 +18,9 @@ public class STREAK : ReactiveObject
     public StreakStatus Status { get; set; } = StreakStatus.Unactivated;
 
     public DateTime EndDate => StartDate.AddDays(DurationDays - 1);
+    
+    [System.Text.Json.Serialization.JsonIgnore] 
+    public INotificationService? NotificationService { get; set; }
     
     public bool IsTodayDone 
     {
@@ -80,11 +84,19 @@ public class STREAK : ReactiveObject
     public void MarkTodayComplete()
     {
         var todayEntry = Days.FirstOrDefault(d => d.Date == DateTime.Today);
-        if (todayEntry == null) return;
+        
+        if (todayEntry == null)
+        {
+            // Use the service if it's been assigned
+            NotificationService?.ShowNotification("Have-It", "Don't forget to activate your streak for today!");
+            return;
+        }
 
         todayEntry.IsCompleted = true;
-        
         this.RaisePropertyChanged(nameof(IsTodayDone));
+        this.RaisePropertyChanged(nameof(CompletedDaysCount));
+        
+        NotificationService?.ShowNotification("Have-It", "Streak has been activated for today! Keep up the good work.");
         
         Evaluate();
     }

@@ -10,11 +10,18 @@ public class PersistenceService
 
     public void Save(AppState state)
     {
-        var json = JsonSerializer.Serialize(state.Tasks, new JsonSerializerOptions
-        {
-            WriteIndented = true
-        });
+        // 1. Setup the options
+        var options = new JsonSerializerOptions { WriteIndented = true };
 
+        // 2. Turn the tasks into a JSON string
+        var json = JsonSerializer.Serialize(state.Tasks, options);
+
+        // 3. DEBUG: This will print the JSON to your Rider "Debug" window
+        System.Diagnostics.Debug.WriteLine("--- SAVING JSON START ---");
+        System.Diagnostics.Debug.WriteLine(json);
+        System.Diagnostics.Debug.WriteLine("--- SAVING JSON END ---");
+
+        // 4. Actually save it to the file
         File.WriteAllText(FileName, json);
     }
 

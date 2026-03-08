@@ -170,14 +170,14 @@
                                        FontSize="22" FontWeight="Bold"/>
                             <TextBlock Text="@username"
                                        FontSize="13" Foreground="#666666"/>
+                            <!--
                             <StackPanel Orientation="Horizontal" Spacing="5">
                                 <TextBlock Text="0 Days Streak"
                                            FontSize="13" Foreground="#666666"/>
-                                
                                 <Image Source="avares://HaveItMain/Assets/smenu.png"
                                        Width="16" Height="16"
                                        VerticalAlignment="Center"/>
-                            </StackPanel>
+                            </StackPanel> -->
                         </StackPanel>
                     </StackPanel>
 

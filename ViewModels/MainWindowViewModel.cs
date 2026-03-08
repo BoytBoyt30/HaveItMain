@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ReactiveUI;
 using System.Reactive.Linq;
 using HaveItMain.Services;
@@ -31,16 +32,41 @@ namespace HaveItMain.ViewModels
         public MainWindowViewModel(AppState state)
         {
             State = state ?? throw new ArgumentNullException(nameof(state));
+            State.NotificationService?.ShowNotification(
+                "Welcome to HaveIt!", 
+                "Your productivity journey starts now."
+            );
             
             _streakPersistence = new StreakPersistenceService();
             _taskPersistence = new PersistenceService();
             _streakService = new StreakService(); 
             
-            State.CurrentStreak = _streakPersistence.Load();
-            State.StreakStarted = State.CurrentStreak != null;
-    
+// 1. LOAD THE DATA FIRST (In silence)
             _taskPersistence.Load(State);
 
+            // 2. THE PURGE (Remove old tasks before the UI/Service even knows they exist)
+            var tasksToRemove = State.Tasks
+                .Where(t => t.IsFinished && t.CompletedDate.HasValue && t.CompletedDate < DateTime.Today)
+                .ToList();
+
+            foreach (var task in tasksToRemove)
+            {
+                State.Tasks.Remove(task);
+            }
+    
+            // Save the "Clean" list immediately
+            _taskPersistence.Save(State);
+
+            // 3. LOAD THE STREAK
+            State.CurrentStreak = _streakPersistence.Load();
+            if (State.CurrentStreak != null)
+            {
+                State.CurrentStreak.NotificationService = State.NotificationService;
+                State.CurrentStreak.Evaluate(); // This checks if today's slot is empty
+            }
+            State.StreakStarted = State.CurrentStreak != null;
+
+            // 4. NOW HOOK THE COLLECTION (Only now do we start listening for NEW clicks)
             HookTaskCollection();
             
             IObservable<ViewModelBase> obs = this.WhenAnyValue(x => x.CurrentViewModel);
@@ -51,11 +77,6 @@ namespace HaveItMain.ViewModels
                 else
                     CurrentTitle = "";
             });
-            
-            State.NotificationService?.ShowNotification(
-                "Welcome to HaveIt!", 
-                "Your productivity journey starts now."
-            );
             CurrentViewModel = new Dashboard(state);
         }
 
@@ -87,21 +108,40 @@ namespace HaveItMain.ViewModels
         private void SubscribeToTask(TaskItemViewModel task)
         {
             task.WhenAnyValue(x => x.IsFinished)
-                .Where(done => done) // Only fire when task is checked 'True'
-                .Subscribe(_ =>
+                .Skip(1) // <--- THIS IS CRITICAL. It ignores the first value (from the JSON load)
+                .Subscribe(isDone =>
                 {
-                    // SAFETY GATE: If the user hasn't opted-in to a streak, 
-                    // just save the task and stop here.
-                    if (State.CurrentStreak == null)
+                    if (isDone)
                     {
-                        _taskPersistence.Save(State);
-                        return;
+                        _streakService.RegisterTaskCompletion(State);
                     }
-                    
-                    _streakService.RegisterTaskCompletion(State);
-                    _streakPersistence.Save(State.CurrentStreak);
+                    // Always save when a change happens
                     _taskPersistence.Save(State);
+                    _streakPersistence.Save(State.CurrentStreak);
                 });
+        }
+        
+        public void OnTaskToggled(object parameter)
+        {
+            if (parameter is TaskItemViewModel task)
+            {
+                // 1. Manually trigger the date logic since the setter is being flaky
+                if (task.IsFinished)
+                {
+                    task.CompletedDate = DateTime.Today;
+                    _streakService.RegisterTaskCompletion(State);
+                }
+                else
+                {
+                    task.CompletedDate = null;
+                }
+
+                // 2. Force the Save immediately
+                _taskPersistence.Save(State);
+                _streakPersistence.Save(State.CurrentStreak);
+        
+                System.Diagnostics.Debug.WriteLine($"Method triggered for: {task.Title}. CompletedDate: {task.CompletedDate}");
+            }
         }
         
         public void TriggerAlert() {

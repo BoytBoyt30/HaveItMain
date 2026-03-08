@@ -38,7 +38,18 @@ public class Dashboard : ViewModelBase, IHasTitle
 
     public Dashboard(AppState state)
     {
-        _state = state;
+        _state = state ?? throw new ArgumentNullException(nameof(state));
+        
+        _streakService = new StreakService();
+        
+        _state.WhenAnyValue(x => x.StreakStarted, x => x.CurrentStreak)
+            .Subscribe(_ =>
+            {
+                this.RaisePropertyChanged(nameof(StreakStarted));
+                this.RaisePropertyChanged(nameof(Is7DayStreak));
+                this.RaisePropertyChanged(nameof(Is14DayStreak));
+                this.RaisePropertyChanged(nameof(Show14DayActiveUI));
+            });
         _hasNoTasks = this.WhenAnyValue(x => x.Tasks.Count)
             .Select(count => count == 0)
             .ToProperty(this, x => x.HasNoTasks);
