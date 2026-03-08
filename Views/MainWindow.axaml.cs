@@ -1,19 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using HaveItMain.Services;
 using HaveItMain.ViewModels;
+using ReactiveUI;
+using Key = Avalonia.Input.Key;
+using KeyEventArgs = Avalonia.Input.KeyEventArgs;
 
 namespace HaveItMain.Views;
 
 
 public partial class MainWindow : Window
 {
-    
     private bool _sidebarCollapsed = false;
     
     public MainWindow()
@@ -24,7 +28,6 @@ public partial class MainWindow : Window
             // We use Dispatcher to ensure the UI update happens on the main thread
             Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(() => TriggerSnackbar(message));
         };
-        // DataContext = new MainWindowViewModel();
     }
     
     private async void TriggerSnackbar(string message)
@@ -295,26 +298,43 @@ public partial class MainWindow : Window
         Windowgrid.Focus();
     }
     
-    private void SignOut_Click(object? sender, RoutedEventArgs e)
+    private async void SignOut_Click(object? sender, RoutedEventArgs e)
     {
-        // 1. Wipe the persistent session file
-        var sessionService = new SessionService();
-        sessionService.ClearSession();
+// 1. Grab the Window hosting this control
+        var window = (Window)this.VisualRoot!;
 
-        // 2. Reset the AppState (HCI: ensures no data leaks to the next user)
-        App.ServiceState.IsLoggedIn = false;
-        // Optional: Reset other things like App.ServiceState.Tasks.Clear();
+        // 2. Ask for permission
+        var dialog = new ConfirmationDialog("Are you sure you want to log out of Have-It?");
+        var result = await dialog.ShowDialog<bool>(window);
 
-        // 3. Open the Landing Window
-        var landing = new Landing
+        if (result)
         {
-            // Re-pass the ServiceState so the new login can access the account list
-            DataContext = new MainWindowViewModel(App.ServiceState)
-        };
-        landing.Show();
+            // --- THE LOGOUT SEQUENCE ---
 
-        // 4. Close the current Main Window
-        this.Close();
+            // A. Wipe the persistent session file
+            var sessionService = new SessionService();
+            sessionService.ClearSession();
+
+            // B. Reset the AppState
+            App.ServiceState.IsLoggedIn = false;
+            // App.ServiceState.Tasks.Clear(); // Optional but clean
+
+            // C. Open the Landing Window
+            var landing = new Landing
+            {
+                // Note: Ensure Landing is expecting MainWindowViewModel or LandingViewModel
+                DataContext = new MainWindowViewModel(App.ServiceState)
+            };
+            landing.Show();
+
+            // D. Close the current window
+            window.Close();
+        }
+        else
+        {
+            // User changed their mind, keep things as they are
+            window.Focus();
+        }
     }
     
     private async void Export_Click(object? sender, RoutedEventArgs e)

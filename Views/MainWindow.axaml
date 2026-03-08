@@ -19,6 +19,12 @@
         Title="Have-It"
         KeyDown="Keydown"
         Focusable="True">
+    <Window.KeyBindings>
+        <KeyBinding Gesture="Ctrl+Add" Command="{Binding IncreaseFontCommand}"/>
+        <KeyBinding Gesture="Ctrl+OemPlus" Command="{Binding IncreaseFontCommand}"/>
+        <KeyBinding Gesture="Ctrl+Subtract" Command="{Binding DecreaseFontCommand}"/>
+        <KeyBinding Gesture="Ctrl+OemMinus" Command="{Binding DecreaseFontCommand}"/>
+    </Window.KeyBindings>
     <Panel>
         <Grid x:Name="Windowgrid" Focusable="True" ColumnDefinitions="72,87,* ,30" PointerPressed="MainContainer_PointerPressed" Background="{StaticResource BrushBackground}">
         <Border 
@@ -120,7 +126,7 @@
                       Cursor="Hand"
                       PointerPressed="ExpandHandle_OnPointerPressed"
           
-                      Data="M 0,0 A 20,20 0 0 1 0,40 Z"> 
+                      Data="M 0,0 A 20,20 0 0 1 0,40 Z">
                     <Path.Effect>
                         <DropShadowEffect Color="Black" BlurRadius="5" Opacity="0.3" OffsetX="2"/>
                     </Path.Effect>
@@ -140,7 +146,7 @@
                                 HorizontalAlignment="Left" 
                                 VerticalAlignment="Center"/>
                         </Border>
-                        <Border Grid.Column="1">
+                        <Border Grid.Column="1" Margin="40,0,0,0">
                             <!-- SEARCH CONTAINER -->
                             <Border CornerRadius="10"
                                     Background="#F0F0F0"
@@ -162,6 +168,7 @@
                                              KeyDown="Search_KeyDown"
                                              FilterMode="Contains"
                                              BorderThickness="0"
+                                                     FontSize="20"
                                              Background="Transparent"
                                              HorizontalAlignment="Stretch"
                                              VerticalAlignment="Center"/>
@@ -172,8 +179,8 @@
                         <Border Grid.Column="3">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                                 <StackPanel Orientation="Vertical" Margin="0,0,20,0" VerticalAlignment="Center">
-                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Text="{Binding State.UserAccount.FullName}" PointerPressed="AccountSettings_Click" Cursor="Hand"> </TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click" Cursor="Hand"> Personal Plan </TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" FontSize="20" TextAlignment="Right" Text="{Binding State.UserAccount.FullName}" PointerPressed="AccountSettings_Click" Cursor="Hand"> </TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" FontSize="20"  TextAlignment="Right" PointerPressed="AccountSettings_Click" Cursor="Hand"> Personal Plan </TextBlock>
                                 </StackPanel> 
                                 <!--<Border
                                     PointerPressed="AccountSettings_Click"

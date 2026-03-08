@@ -96,7 +96,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     
     public void SaveChanges() 
     {
-        // 1. Sync sandbox (what's in the textboxes) to real state (the account in the list)
+        // 1. Sync sandbox to the local UserAccount object
         _state.UserAccount.FirstName = EditableAccount.FirstName;
         _state.UserAccount.LastName = EditableAccount.LastName;
         _state.UserAccount.Address = EditableAccount.Address;
@@ -105,20 +105,28 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
         _state.UserAccount.ContactNumber = EditableAccount.ContactNumber;
         _state.UserAccount.Password = EditableAccount.Password;
 
-        // 2. Lock the UI (The "Pencils" go away)
-        DisableAllEditing();
+        // 2. CRITICAL STEP: Update the master list in the AppState
+        // We find the account in AllAccounts that matches the one we just edited
+        var accountToUpdate = _state.AllAccounts.FirstOrDefault(a => a.Username == _state.UserAccount.Username);
 
-        // 3. Save the WHOLE list to accounts.json
+        if (accountToUpdate != null)
+        {
+            // Since accountToUpdate is a reference to the object in the list,
+            // updating its properties actually updates the object inside the list!
+            accountToUpdate.FirstName = _state.UserAccount.FirstName;
+            accountToUpdate.LastName = _state.UserAccount.LastName;
+            // ... and so on for all fields ...
+        }
+
+        // 3. Save the list
         _accountPersistence.Save(_state.AllAccounts.ToList());
 
-        // 4. Update the "Last Logged In" session
-        // NOTE: Use _state.UserAccount.Username because 'UserAccount' 
-        // usually belongs to the State, not the ViewModel directly.
-        var sessionService = new SessionService();
-        sessionService.SaveSession(true, _state.UserAccount.Username);
+        // 4. Lock UI and update session
+        DisableAllEditing();
+        new SessionService().SaveSession(true, _state.UserAccount.Username);
 
-        // 5. Trigger your new Snackbar!
-        NotificationService.Show("Changes Saved");
+        // 5. Notify the user
+        NotificationService.Show("Changes Saved Successfully!");
     }
     
     public void CancelChanges()

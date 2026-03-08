@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform.Storage;
+using HaveItMain.Services;
 using HaveItMain.ViewModels;
 
 namespace HaveItMain.Views;
@@ -127,6 +128,43 @@ public partial class AccountSettingsView : UserControl
             // Update UI Icons
             eyeopen.IsVisible = false;
             eyeclosed.IsVisible = true;
+        }
+    }
+
+    private async void Logout_OnClick(object? sender, RoutedEventArgs e)
+    {
+// 1. Get the parent window (The "VisualRoot")
+        var window = (Window)this.VisualRoot!;
+
+        // 2. Pop the Confirmation Dialog
+        // (Assuming your ConfirmationDialog constructor takes a string message)
+        var dialog = new ConfirmationDialog("Are you sure you want to log out of Have-It?");
+        var result = await dialog.ShowDialog<bool>(window);
+
+        if (result)
+        {
+            // --- PROCEED WITH LOGOUT ---
+        
+            // 3. Clear Session & State
+            var sessionService = new SessionService();
+            sessionService.ClearSession();
+            App.ServiceState.IsLoggedIn = false;
+
+            // 4. Open Landing
+            var landing = new Landing
+            {
+                // Make sure the ViewModel matches what Landing expects
+                DataContext = new Landing() 
+            };
+            landing.Show();
+
+            // 5. Close the Main Window
+            window.Close();
+        }
+        else
+        {
+            // User chickened out! Return focus to the window
+            window.Focus();
         }
     }
 }

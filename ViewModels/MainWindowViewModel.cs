@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ReactiveUI;
 using System.Reactive.Linq;
+using System.Windows.Input;
+using Avalonia;
 using HaveItMain.Services;
 
 namespace HaveItMain.ViewModels
@@ -10,6 +12,8 @@ namespace HaveItMain.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         public AppState State { get; }
+        public ICommand IncreaseFontCommand { get; }
+        public ICommand DecreaseFontCommand { get; }
     
         private readonly StreakService _streakService;
         private readonly StreakPersistenceService _streakPersistence;
@@ -38,6 +42,8 @@ namespace HaveItMain.ViewModels
 
         public MainWindowViewModel(AppState state)
         {
+            IncreaseFontCommand = ReactiveCommand.Create(() => AdjustFont(2.0));
+            DecreaseFontCommand = ReactiveCommand.Create(() => AdjustFont(-2.0));
             State = state ?? throw new ArgumentNullException(nameof(state));
             
             var accountPersistence = new AccountPersistenceService();
@@ -87,6 +93,18 @@ namespace HaveItMain.ViewModels
                     CurrentTitle = "";
             });
             CurrentViewModel = new Dashboard(state);
+        }
+        
+        private void AdjustFont(double delta)
+        {
+            if (Application.Current == null) return;
+
+            double newSize = Math.Clamp(App.ServiceState.CurrentFontSize + delta, 10, 40);
+            App.ServiceState.CurrentFontSize = newSize;
+
+            // Update the Global Resources
+            Application.Current.Resources["FontSizeNormal"] = newSize;
+            Application.Current.Resources["FontSizeLarge"] = newSize * 2.0;
         }
 
         private void HookTaskCollection()

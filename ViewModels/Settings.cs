@@ -8,7 +8,7 @@ namespace HaveItMain.ViewModels;
 public class Settings : ViewModelBase, IHasTitle
 {
     private readonly AppState _state;
-    public AppState State => _state; 
+    public AppState State => App.ServiceState;
     public string Title => "SETTINGS";
 
     private readonly AccountPersistenceService _accountPersistence;

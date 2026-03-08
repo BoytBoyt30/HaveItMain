@@ -14,6 +14,13 @@ public class AppState : ReactiveObject
 {
     private bool _streakStarted = false;
     
+    private double _currentFontSize = 16.0;
+    public double CurrentFontSize
+    {
+        get => _currentFontSize;
+        set => this.RaiseAndSetIfChanged(ref _currentFontSize, value);
+    }
+    
     public ObservableCollection<Account> AllAccounts { get; set; } = new();
     
     public bool StreakStarted

@@ -36,7 +36,7 @@
             <DatePicker x:Name="DueDatePicker"
                         HorizontalAlignment="Stretch"/>
             <TimePicker x:Name="TimePicker"
-                        FontSize="22"
+                        FontSize="{DynamicResource FontSizeNormal}"
                         HorizontalAlignment="Stretch"/>
             <TextBlock> Urgency </TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">

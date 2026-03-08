@@ -69,29 +69,29 @@
         <Style Selector="MenuFlyoutPresenter">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         </Style>
         <Style Selector="Button">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource  FontSizeNormal}"/>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="ToggleButton">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
         </Style>
         <Style Selector="Button.Universal_Button">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource  FontSizeNormal}"/>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="Button.Primary">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
             <Setter Property="Foreground" Value="{StaticResource BrushBackground}"></Setter>
             <Setter Property="Background" Value="{StaticResource BrushPrimary}"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
@@ -99,7 +99,7 @@
         <Style Selector="Button.Secondary">
             <Setter Property="FontFamily" Value="{DynamicResource AppFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="FontSize" Value="{DynamicResource  FontSizeNormal}"/>
             <Setter Property="Foreground" Value="{StaticResource BrushBackground}"></Setter>
             <Setter Property="Background" Value="{StaticResource BrushCompliment}"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>

@@ -23,13 +23,13 @@
                                VerticalAlignment="Center">
                             <TextBlock x:Name="EnabledText"
                                        Text="Enabled"
-                                       FontSize="20"
+                                       FontSize="{DynamicResource FontSizeNormal}"
                                        HorizontalAlignment="Center"
                                        Foreground="{StaticResource BrushBackground}"
                                        IsVisible="False"/>
                             <TextBlock x:Name="DisabledText"
                                        Text="Disabled"
-                                       FontSize="20"
+                                       FontSize="{DynamicResource FontSizeNormal}"
                                        HorizontalAlignment="Center"
                                        Foreground="{StaticResource BrushPrimary}"
                                        IsVisible="True"/>
@@ -172,17 +172,15 @@
                            Text="Adjust Text Size (Ctrl + - / Ctrl + =)"
                            VerticalAlignment="Center"/>
 
-                <ComboBox Grid.Row="0"
-                          Grid.Column="1"
-                          Width="80"
-                          x:Name="FontSizePicker" 
-                          SelectedIndex="1"
-                          >
-                    <ComboBoxItem Content="12"/>
-                    <ComboBoxItem Content="14"/>
-                    <ComboBoxItem Content="16"/>
-                    <ComboBoxItem Content="20"/>
-                    <ComboBoxItem Content="24"/>
+                <ComboBox  Grid.Row="0" Grid.Column="1" x:Name="FontSizePicker" 
+                          SelectedValue="{Binding State.CurrentFontSize, Mode=TwoWay}"
+                          SelectedValueBinding="{Binding $self.Tag}"
+                          Width="80">
+                    <ComboBoxItem Content="12" Tag="12"/>
+                    <ComboBoxItem Content="14" Tag="14"/>
+                    <ComboBoxItem Content="16" Tag="16"/>
+                    <ComboBoxItem Content="20" Tag="20"/>
+                    <ComboBoxItem Content="24" Tag="24"/>
                 </ComboBox>
 
                 <Grid Grid.Row="0"
