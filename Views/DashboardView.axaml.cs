@@ -38,6 +38,7 @@ public partial class DashboardView : UserControl
         if (result != null)
         {
             (DataContext as Dashboard)?.AddTask(result);
+            AudioService.PlaySfx("AddTimerTask.mp3");
         }
     }
 
@@ -60,6 +61,7 @@ public partial class DashboardView : UserControl
                 if (result != null)
                 {
                     vm.AddTimer(result);
+                    AudioService.PlaySfx("AddTimerTask.mp3");
                 }
             }
         }
@@ -75,6 +77,7 @@ public partial class DashboardView : UserControl
         if (result != null)
         {
             (DataContext as Dashboard)?.AddTimer(result);
+            AudioService.PlaySfx("AddTimerTask.mp3");
         }
     }
     private void PauseTimer(object? sender, RoutedEventArgs e)
@@ -96,6 +99,7 @@ public partial class DashboardView : UserControl
             DataContext is Dashboard vm)
         {
             vm.RemoveTask(task);
+            AudioService.PlaySfx("Discarded.mp3");
         }
     }
     
@@ -107,6 +111,7 @@ public partial class DashboardView : UserControl
         {
             timer.Stop();
             vm.RemoveTimer(timer);
+            AudioService.PlaySfx("Discarded.mp3");
         }
     }
     
@@ -120,7 +125,8 @@ public partial class DashboardView : UserControl
             NotificationService.Show("No task to undo");
             return;
         }
-
+        
+        AudioService.PlaySfx("AddTimerTask.mp3");
         vm.UndoDelete(); 
     }
 
@@ -183,6 +189,7 @@ public partial class DashboardView : UserControl
     
         // Optional: Add a confirmation here so they don't accidental-delete!
         (DataContext as Dashboard)?.RemoveTask(selectedTask);
+        AudioService.PlaySfx("Discarded.mp3");
         window.Focus();
     }
 
@@ -212,6 +219,17 @@ public partial class DashboardView : UserControl
             };
 
             focus.Show();
+        }
+    }
+
+    private void IsFinishedSound(object? sender, RoutedEventArgs e)
+    {
+        if (sender is CheckBox finishedBox)
+        {
+            if (finishedBox.IsChecked == true)
+            {
+                AudioService.PlaySfx("finish_task.mp3");
+            }
         }
     }
 }

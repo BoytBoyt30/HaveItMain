@@ -981,6 +981,15 @@
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.targets": {}
         }
       },
+      "NetCoreAudio/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -3481,6 +3490,15 @@
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.targets": {}
+        }
+      },
+      "NetCoreAudio/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -6150,6 +6168,15 @@
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.targets": {}
         }
       },
+      "NetCoreAudio/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -8815,6 +8842,15 @@
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.WinUI.targets": {}
+        }
+      },
+      "NetCoreAudio/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -13488,6 +13524,21 @@
         "tools/net6.0/System.Text.Json.dll",
         "tools/x64/GenXbf.dll",
         "tools/x86/GenXbf.dll"
+      ]
+    },
+    "NetCoreAudio/2.0.1": {
+      "sha512": "S9i/e+z9gzwXG0vY+qpF21bKEmmCE7LmqPtNM0grgE/P5vNHjUnpJdHwdb62wW/Ypa38RqqLErGkdRKxFfDGng==",
+      "type": "package",
+      "path": "netcoreaudio/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.jpg",
+        "lib/netstandard2.1/NetCoreAudio.dll",
+        "netcoreaudio.2.0.1.nupkg.sha512",
+        "netcoreaudio.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -19230,6 +19281,7 @@
       "LibVLCSharp >= 3.9.6",
       "LibVLCSharp.Avalonia >= 3.9.6",
       "Microsoft.Toolkit.Uwp.Notifications >= 7.1.3",
+      "NetCoreAudio >= 2.0.1",
       "ReactiveUI >= 20.1.1",
       "ReactiveUI.Fody >= 19.5.41",
       "Svg.Controls.Avalonia >= 11.3.9.2",
@@ -19331,6 +19383,10 @@
           "Microsoft.Toolkit.Uwp.Notifications": {
             "target": "Package",
             "version": "[7.1.3, )"
+          },
+          "NetCoreAudio": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "ReactiveUI": {
             "target": "Package",

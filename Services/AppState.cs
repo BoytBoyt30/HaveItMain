@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia;
 using HaveItMain.ViewModels;
 using ReactiveUI;
 
@@ -50,7 +51,7 @@ public class AppState : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _notificationsGlobal, value);
     }
 
-    private bool _enableSfx = true;
+    private bool _enableSfx = false;
     public bool EnableSfx
     {
         get => _enableSfx;
@@ -64,16 +65,43 @@ public class AppState : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _dyselxic, value);
     }
 
-    private int _volume = 50;  
-    public int Volume
+    private int _sfxVolume = 60;
+    public int SfxVolume
     {
-        get => _volume;
-        set => this.RaiseAndSetIfChanged(ref _volume, value);
+        get => _sfxVolume;
+        // This ensures that when the slider moves, the UI and Logic stay in sync
+        set => this.RaiseAndSetIfChanged(ref _sfxVolume, value);
     }
     
     public AppState()
     {
         LoadAccounts();
+    }
+    
+    private bool _isDyslexicEnabled;
+    public bool IsDyslexicEnabled
+    {
+        get => _isDyslexicEnabled;
+        set 
+        {
+            if (value != _isDyslexicEnabled)
+            {
+                _isDyslexicEnabled = value;
+                // This is the C# logic we had earlier, moved into the Setter
+                UpdateAppFont(value);
+                this.RaisePropertyChanged(nameof(IsDyslexicEnabled));
+            }
+        }
+    }
+    
+    
+    private void UpdateAppFont(bool enabled)
+    {
+        if (Application.Current == null) return;
+        var res = Application.Current.Resources;
+    
+        res["AppFont"] = enabled ? res["DyslexicFont"] : res["NunitoFont"];
+        // Optional: Add your font size scaling here too!
     }
     
     public void LoadAccounts()

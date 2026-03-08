@@ -106,10 +106,10 @@
         </Style>
 
         <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_IncreaseButton">
-            <Setter Property="Background" Value="#FCFCFC"/>
+            <Setter Property="Background" Value="DarkGray"/>
         </Style>
         <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_IncreaseButton /template/ Border">
-            <Setter Property="Background"   Value="#FCFCFC"/>
+            <Setter Property="Background"   Value="DarkGray"/>
             <Setter Property="CornerRadius" Value="0,8,8,0"/>
             <Setter Property="Height"       Value="8"/>
         </Style>
@@ -161,7 +161,7 @@
                     Spacing="0"
                     HorizontalAlignment="Stretch">
             <Grid Margin="24"
-                  ColumnDefinitions="*, Auto, 120,*"
+                  ColumnDefinitions="Auto, Auto, Auto,*"
                   ColumnSpacing="20"
                   RowSpacing="30"
                   RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
@@ -206,11 +206,13 @@
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="Dyslexic Mode"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           />
 
                 <ToggleButton Grid.Row="1"
                               Grid.Column="2"
                               Classes="Primary toggle-btn"
+                              IsChecked="{Binding State.IsDyslexicEnabled, Mode=TwoWay}"
                               HorizontalAlignment="Stretch"/>
                 <!-- 
                 <TextBlock Grid.Row="2"
@@ -230,7 +232,7 @@
                               IsChecked="{Binding State.EnableSfx, Mode=TwoWay}"
                               HorizontalAlignment="Stretch"/>
                 <TextBlock Grid.Column="0" Grid.Row="3" Classes="setting-label" Text="SFX Volume"/>
-                <Slider Grid.Column="2" Grid.Row="3" Classes="yellow-slider" Width="100" Minimum="0" Maximum="100" Value="60" VerticalAlignment="Center"/>
+                <Slider Grid.Column="2" Grid.Row="3" Classes="yellow-slider" Width="100" Minimum="0" Maximum="100" Value="{Binding State.SfxVolume, Mode=TwoWay}" VerticalAlignment="Center"/>
                 <TextBlock Grid.Column="0" Grid.Row="4" Classes="setting-label" Text="Enable Notification Ping"/>
                 <ToggleButton Grid.Row="4"
                               Grid.Column="2"

@@ -126,7 +126,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTasks}" Text="No Tasks Created. Add a Task using the + Button."/>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTasks}" Text="No Tasks Created. Add a Task using the + Button."/>
                     <ListBox Margin="0,10,0,10"
                              Padding="10"
                              x:Name="TASKLISTCONTAINER"
@@ -204,6 +204,8 @@
                                                        Height="25"/>
                                             </Button>
                                             <CheckBox IsChecked="{Binding IsFinished, Mode=TwoWay}"
+                                                      x:Name="finished_box"
+                                                      IsCheckedChanged="IsFinishedSound"
                                                       Width="25"
                                                       Height="25"/>
                                             <Button Click="DeleteTask"
@@ -237,9 +239,9 @@
                     <Grid Grid.Row="1">
                         <Grid VerticalAlignment="Center">
                             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}">
-                                <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
-                                <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30" Margin="0,30,0,0">
+                                <TextBlock TextWrapping="Wrap"  Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
+                                <TextBlock TextWrapping="Wrap"  Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" ItemSpacing="30" Margin="0,30,0,0">
                                     <Button Content="7-Day Streak" 
                                             Command="{Binding StartNewStreak}"
                                             HorizontalAlignment="Center"
@@ -248,7 +250,7 @@
                                             Command="{Binding StartNewStreakFourteen}"
                                             HorizontalAlignment="Center"
                                             Classes="Secondary"/>
-                                </StackPanel>
+                                </WrapPanel>
                             </StackPanel>
                             <Grid ColumnDefinitions="200, *" IsVisible="{Binding StreakStarted}">
                                 <Border Grid.Column="0">
@@ -326,7 +328,7 @@
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTimers}" Text="No timers running. Use the + button to add a timer."/>
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTimers}" Text="No timers running. Use the + button to add a timer."/>
                         <ListBox Margin="0,10,0,10"
                                  Padding="5"
                                  x:Name="TIMERLISTCONTAINER"

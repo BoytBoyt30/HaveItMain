@@ -20,6 +20,7 @@ public partial class AccountSettingsView : UserControl
     {
         if (DataContext is AccountSettings vm)
         {
+            AudioService.PlaySfx("Discarded.mp3");
             // 1. Setup the Confirmation Dialog
             var confirmDialog = new ConfirmationDialog("Are you sure? This will wipe all tasks and streaks!");
             var topLevel = TopLevel.GetTopLevel(this);

@@ -128,12 +128,13 @@ public class TimerViewModel : ViewModelBase
                         NotificationService.Show($"Timer ({Title}) is finished!");
                         if (_linkedTask != null)
                             _linkedTask.IsFinished = true;
-                        if (isNotified)
+                        if (isNotified && App.ServiceState.NotificationsGlobal)
                         {
                             App.ServiceState.NotificationService?.ShowNotification(
                                 "Have-It Timers", 
                                 $"Timer ({Title}) is finished!"
                             );
+                            AudioService.PlaySfx("idkwhattodo.mp3");
                         }
                         _timerSubscription?.Dispose();
                         OnFinished?.Invoke(this); 

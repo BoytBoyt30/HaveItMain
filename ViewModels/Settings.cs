@@ -13,6 +13,7 @@ public class Settings : ViewModelBase, IHasTitle
 
     private readonly AccountPersistenceService _accountPersistence;
 
+
     public Settings(AppState state)
     {
         _state = state;

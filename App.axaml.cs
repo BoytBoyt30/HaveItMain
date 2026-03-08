@@ -10,6 +10,7 @@ namespace HaveItMain;
 
 public partial class App : Application
 {
+    
     public static AppState ServiceState { get; set; } = new();
     public override void Initialize()
     {

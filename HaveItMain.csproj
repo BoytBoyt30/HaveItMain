@@ -11,6 +11,14 @@
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
         <Folder Include="Video\" />
+        <Content Remove="Assets\OpenDyslexic-Bold.otf" />
+        <AvaloniaResource Include="Assets\OpenDyslexic-Bold.otf" />
+        <Content Remove="Assets\OpenDyslexic-BoldItalic.otf" />
+        <AvaloniaResource Include="Assets\OpenDyslexic-BoldItalic.otf" />
+        <Content Remove="Assets\OpenDyslexic-Italic.otf" />
+        <AvaloniaResource Include="Assets\OpenDyslexic-Italic.otf" />
+        <Content Remove="Assets\OpenDyslexic-Regular.otf" />
+        <AvaloniaResource Include="Assets\OpenDyslexic-Regular.otf" />
     </ItemGroup>
     
     <ItemGroup>
@@ -37,6 +45,7 @@
         <PackageReference Include="LibVLCSharp" Version="3.9.6" />
         <PackageReference Include="LibVLCSharp.Avalonia" Version="3.9.6" />
         <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+        <PackageReference Include="NetCoreAudio" Version="2.0.1" />
         <PackageReference Include="ReactiveUI" Version="20.1.1" />
         <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
         <PackageReference Include="Svg.Controls.Avalonia" Version="11.3.9.2" />

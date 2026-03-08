@@ -84,20 +84,32 @@ public class STREAK : ReactiveObject
     public void MarkTodayComplete()
     {
         var todayEntry = Days.FirstOrDefault(d => d.Date == DateTime.Today);
-        
+    
         if (todayEntry == null)
         {
-            // Use the service if it's been assigned
             NotificationService?.ShowNotification("Have-It", "Don't forget to activate your streak for today!");
             return;
         }
+        
+        if (todayEntry.IsCompleted) 
+        {
+            return; 
+        }
+        // ------------------------
 
         todayEntry.IsCompleted = true;
+    
         this.RaisePropertyChanged(nameof(IsTodayDone));
         this.RaisePropertyChanged(nameof(CompletedDaysCount));
-        
-        NotificationService?.ShowNotification("Have-It", "Streak has been activated for today! Keep up the good work.");
-        
+
+        // Now these only run the VERY FIRST time you finish a task today
+        AudioService.PlaySfx("StreakActivated.mp3");
+    
+        if (App.ServiceState.NotificationsGlobal)
+        {
+            NotificationService?.ShowNotification("Have-It", "Streak has been activated for today! Keep up the good work.");   
+        }
+    
         Evaluate();
     }
 }
